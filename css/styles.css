@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Bariol-Regular';
+  src: url("../fonts/Bariol-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Bariol-Regular.otf") format("opentype"), url("../fonts/Bariol-Regular.woff") format("woff"), url("../fonts/Bariol-Regular.ttf") format("truetype"), url("../fonts/Bariol-Regular.svg#Bariol-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Bariol-Regular";
+}
+
+.main {
+  background-image: url("../images/portada.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.pinkColor {
+  color: #dd1c55;
+}
+
+p {
+  letter-spacing: 2px;
+}
