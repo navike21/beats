@@ -1,0 +1,76 @@
+@keyframes fadeOutVideo
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+
+@media all and (min-width: 1px)
+  .videoHome
+    overflow: hidden
+    position: relative
+    &::before
+      content: ""
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: 2
+    
+  .controlVideo
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    padding: 10px
+    margin: auto
+    z-index: 3
+    height: 10vh
+    
+  .controlVideoHome
+    background-color: rgba($pinkColor, 0)
+    transition: all ease-in-out .3s
+    border: 1px solid $pinkColor
+    width: 60px
+    height: 60px
+    border-radius: 50%
+    color: $pinkColor
+    font-size: 2.5rem
+    cursor: pointer
+    opacity: .5
+  
+  .controlVideoHome:hover,
+  .pausedControl
+    background-color: rgba($pinkColor, 1)
+    color: $whiteColor
+    opacity: 1
+
+  .videoHomeYt
+    transition: all ease-in-out .3s
+    transform: scale(1.15)
+
+  .blurVideo
+    transition: all ease-in-out .3s
+    transform: scale(1.5)
+    filter: blur(5vw)
+
+  .outVideo
+    animation-name: fadeOutVideo
+    animation-duration: .3s
+    animation-direction: alternate
+    animation-timing-function: ease-out
+    animation-iteration-count: 1
+    animation-fill-mode: forwards
+    z-index: -1
+
+@media all and (min-width: 1024px)
+  .controlVideoHome
+    width: 4.5vw
+    height: 4.5vw
+
+@media all and (min-width: 1600px)
+  .controlVideoHome
+    width: 3vw
+    height: 3vw

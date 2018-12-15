@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "flow.useNPMPackagedFlow": true,
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false,
+  "prettier.eslintIntegration": true,
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "git.confirmSync": false,
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "git.enableSmartCommit": true,
+  "prettier.singleQuote": true,
+  "workbench.iconTheme": "vscode-icons",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.meteor": true,
+    "**/.next": true,
+    "**/bower_components": true
+  },
+  "prettier.printWidth": 100,
+  "cSpell.language": "en,es",
+  "terminal.integrated.fontSize": 12
+}
