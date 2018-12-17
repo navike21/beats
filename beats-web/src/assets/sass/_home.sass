@@ -3,12 +3,19 @@
     opacity: 1
   100%
     opacity: 0
+@keyframes fadeInPortada
+  0%
+    opacity: 0
+  100%
+    opacity: 1
 
 
 @media all and (min-width: 1px)
   .videoHome
     overflow: hidden
-    position: relative
+    position: absolute
+    top: 0
+    left: 0
     &::before
       content: ""
       position: absolute
@@ -65,10 +72,50 @@
     animation-fill-mode: forwards
     z-index: -1
 
+  .portadaHome
+    background: url("../../images/portada.png") no-repeat center center
+    background-size: cover
+    opacity: 0
+  
+  .showPortada
+    animation-name: fadeInPortada
+    animation-duration: .4s
+    animation-direction: alternate
+    animation-timing-function: ease-out
+    animation-iteration-count: 1
+    animation-fill-mode: forwards
+
+  .textHome
+    margin-bottom: 8vh
+  
+  .about
+    position: relative
+    .person
+      display: none
+      z-index: 1
+    .textAbout
+      position: relative
+      z-index: 2
+
 @media all and (min-width: 1024px)
   .controlVideoHome
     width: 4.5vw
     height: 4.5vw
+  
+  .textHome
+    margin-bottom: 16vh
+
+  .about
+    position: relative
+    .person
+      display: block
+      position: absolute
+      top: -15.6vh
+      left: 0
+      bottom: 0
+      height: 115.6%
+    .textAbout
+      margin-left: 30vw
 
 @media all and (min-width: 1600px)
   .controlVideoHome

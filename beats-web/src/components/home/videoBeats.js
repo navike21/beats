@@ -10,31 +10,35 @@ export default class VideoBeats extends Component {
       url: null,
       pip: false,
       playing: true,
-      volume: 0.5,
+      volume: 0.0, //0.5
       muted: false,
       played: 0,
       loaded: 0,
       duration: 0,
       playbackRate: 1.0,
-      loop: false
+      loop: false,
+      showimgPortada: this.props.showImg
     };
   }
   componentDidMount() {
+    // console.log(this.state.showimgPortada);
+    // this.showImagePortada();
     this.setState({
       url: this.state.urlYoutube
     });
   }
+
   playPause = () => {
     this.setState({ playing: !this.state.playing });
   };
   stop = () => {
-    this.setState({ hideVideo: true });
-    setTimeout(() => {
-      this.setState({ url: null, playing: false, volume: 0 });
-    }, 500);
+    this.setState({ hideVideo: true }, function() {
+      setTimeout(() => {
+        this.setState({ url: null, playing: false, volume: 0 }, this.state.showimgPortada);
+      }, 500);
+    });
   };
   onEnded = () => {
-    console.log('onEnded');
     this.stop();
   };
 
@@ -47,13 +51,13 @@ export default class VideoBeats extends Component {
   };
 
   onDuration = duration => {
-    console.log('onDuration', duration * (1 - this.state.played));
+    // console.log('onDuration', duration * (1 - this.state.played));
     this.setState({ duration });
   };
 
   onProgress = state => {
     let playedSeconds = parseInt(state.playedSeconds);
-    console.log('onProgress', playedSeconds);
+    // console.log('onProgress', playedSeconds);
     if (playedSeconds === 39) {
       this.stop();
     }
@@ -82,7 +86,8 @@ export default class VideoBeats extends Component {
                 modestbranding: 1,
                 showinfo: 0,
                 enablejsapi: 1,
-                widgetid: 1
+                widgetid: 1,
+                origin: 'localhost:3000'
               }
             }
           }}
@@ -98,10 +103,10 @@ export default class VideoBeats extends Component {
             }
             onClick={this.playPause}
           >
-            {this.state.playing ? <i class="fas fa-pause" /> : <i className="fas fa-play" />}
+            {this.state.playing ? <i className="fas fa-pause" /> : <i className="fas fa-play" />}
           </button>
           <button className={'controlVideoHome section_middle_center'} onClick={this.stop}>
-            <i class="fas fa-stop" />
+            <i className="fas fa-stop" />
           </button>
         </div>
       </div>
