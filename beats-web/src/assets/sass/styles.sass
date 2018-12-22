@@ -4,6 +4,7 @@
 @import _home
 @import _slick
 @import _playList
+@import _prices
 
 
 ::-webkit-scrollbar
@@ -23,6 +24,7 @@ input, buton, textarea
 body
   font-family: $principalFont
   background-color: $blackColor
+  letter-spacing: .15rem
 p
   letter-spacing: 2px
   line-height: 1.3
@@ -40,3 +42,30 @@ p
 
 .spaceLetter
   letter-spacing: 7px
+
+.button
+  background-color: $pinkColor
+  cursor: pointer
+  color: $whiteColor
+  border: none
+  transition: all ease-in-out .4s
+  margin: 20px auto 0
+  padding: 10px 30px
+  &:hover
+    background-color: $whiteColor
+    color: $pinkColor
+    transition: all ease-in-out .4s
+
+.degradado
+  background: linear-gradient(to right, rgb(134,60,147) 0%,rgb(255,1,56) 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#863c93', endColorstr='#ff0138',GradientType=1 )
+
+.sectionTitle
+  padding: 10px 0
+  border-radius: 15px
+  width: 100%
+  text-align: center
+
+@media all and (min-width: 1800px)
+  html
+    font-size: 85%
