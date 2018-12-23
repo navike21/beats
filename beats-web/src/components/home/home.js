@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import Header from '../share/header';
 import VideoBeats from '../home/videoBeats';
 import PlayList from '../home/playList';
+import Footer from '../share/footer';
 
 import pico from '../../images/pico.svg';
+import correo from '../../images/correo.svg';
 import about from '../../images/about.png';
 import logoBeats from '../../images/logo-beats.svg';
 import beatsMobile from '../../images/beats-movil.png';
@@ -119,7 +121,7 @@ export default class Home extends Component {
 
         <div className="preciosCorporativos section_middle_center full_min_h">
           <div className="wrappBussiness section_middle_center">
-            <h2 className="whiteColor font_light font_big section_middle_center w_60 marginBottom_biggest">
+            <h2 className="whiteColor font_light font_big section_middle_center w_60 marginBottom_biggest w_80">
               <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Beats for
               Bussiness
             </h2>
@@ -135,6 +137,24 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+
+        <div className="w_100 playList section_middle_center spaceInBottom_gigant spaceInTop_big">
+          <h2 className="whiteColor font_big font_light marginBottom_small marginHorizontal_small align_center marginTop_big">
+            ¿Estás listo para empezar?
+          </h2>
+          <div className="section_middle_center w_100 marginBottom_big">
+            <button className="button font_small">Pide tu canción</button>
+          </div>
+        </div>
+        <div className="w_100 section_middle_center purpleBackground spaceInVertical_big">
+          <p className="whiteColor w_80 align_center marginBottom_big marginTop_small font_big font_medium_mobile">
+            Para más información puedes escribirnos aquí:
+          </p>
+          <a href="mailto:contacto@beatsmusica.com" className="w_80">
+            <img src={correo} alt="Correo" />
+          </a>
+        </div>
+        <Footer />
       </div>
     );
   }

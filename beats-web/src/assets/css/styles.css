@@ -338,8 +338,20 @@ p {
   color: #692dc8;
 }
 
+.purpleColor2 {
+  color: #6841c3;
+}
+
 .purpleBackground {
   background-color: #692dc8;
+}
+
+.graybackground {
+  background-color: #2b3240;
+}
+
+.darkBlueColor {
+  background-color: #202938;
 }
 
 .spaceLetter {
