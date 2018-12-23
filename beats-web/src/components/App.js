@@ -1,13 +1,10 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // import Header from "./header";
-import Home from "./home/home";
-import About from "./about/about"
+import Home from './home/home';
+// import About from "./about/about"
+import Corporativo from './corporativo/corporativo';
 
 function CustomLinkExample() {
   return (
@@ -15,10 +12,10 @@ function CustomLinkExample() {
       <div className="w_100 section_middle_center">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/nosotros" component={About} />
+          <Route path="/corporativo" component={Corporativo} />
           <Route component={NoMatch} />
         </Switch>
-        </div>
+      </div>
     </Router>
   );
 }
@@ -26,9 +23,7 @@ function CustomLinkExample() {
 function NoMatch({ location }) {
   return (
     <div>
-      <h3>
-        Error 404
-      </h3>
+      <h3>Error 404</h3>
     </div>
   );
 }

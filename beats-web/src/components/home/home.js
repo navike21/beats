@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Header from '../share/header';
 import VideoBeats from '../home/videoBeats';
@@ -11,6 +12,8 @@ import about from '../../images/about.png';
 import logoBeats from '../../images/logo-beats.svg';
 import beatsMobile from '../../images/beats-movil.png';
 import priceImg from '../../images/beats_packs_center.png';
+
+import { contentTypes } from '../share/settings';
 
 export default class Home extends Component {
   constructor(props) {
@@ -65,14 +68,16 @@ export default class Home extends Component {
               <img src={beatsMobile} alt="Beats Móvil" className="img_big_mobile w_100_desktop" />
             </section>
             <section className="w_100 w_49_desktop section_middle_center">
-              <h2 className="whiteColor align_center w_100 section_middle_center font_big">
+              <h2 className="whiteColor align_center w_100 section_middle_center font_big font_light">
                 <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Beats Móvil
               </h2>
               <p className="whiteColor align_center w_100">
                 Creamos tu canción en versión acústica y te la enviamos al móvil en un plazo máximo
                 de 24 horas.
               </p>
-              <button className="button font_normal">A sólo S/. 89.00</button>
+              <button className="button font_normal">
+                A sólo S/. {parseFloat(contentTypes.movilBeats).toFixed(2)}
+              </button>
             </section>
           </div>
         </div>
@@ -84,9 +89,11 @@ export default class Home extends Component {
                 Beats Acústicos
               </h3>
               <span className="font_small">(versión acústuca)</span>
-              <div className="w_100 align_center marginTop_tiny font_big">S/. 410</div>
+              <div className="w_100 align_center marginTop_tiny font_big">
+                S/. {contentTypes.kitSoAcoustic}
+              </div>
 
-              <h2 className="marginVertical_normal font_big_mobile degradado sectionTitle">
+              <h2 className="marginVertical_normal font_big_mobile degradado sectionTitle font_light">
                 Kit Solista
               </h2>
 
@@ -94,7 +101,9 @@ export default class Home extends Component {
                 Todo Beats
               </h3>
               <span className="font_small">(banda completa)</span>
-              <div className="w_100 align_center marginTop_tiny font_big">S/. 550</div>
+              <div className="w_100 align_center marginTop_tiny font_big">
+                S/. {contentTypes.kitSoTodBeats}
+              </div>
             </section>
             <div className="w_100 section_middle_center w_17_desktop">
               <img src={priceImg} alt="PriceImage" className="w_100 img_medium_mobile" />
@@ -104,9 +113,11 @@ export default class Home extends Component {
                 Beats Acústicos
               </h3>
               <span className="font_small">(versión acústuca)</span>
-              <div className="w_100 align_center marginTop_tiny font_big">S/. 520</div>
+              <div className="w_100 align_center marginTop_tiny font_big">
+                S/. {contentTypes.kitDuAcoustic}
+              </div>
 
-              <h2 className="marginVertical_normal font_big_mobile purpleBackground sectionTitle">
+              <h2 className="marginVertical_normal font_big_mobile purpleBackground sectionTitle font_light">
                 Kit a Dúo
               </h2>
 
@@ -114,7 +125,9 @@ export default class Home extends Component {
                 Todo Beats
               </h3>
               <span className="font_small">(banda completa)</span>
-              <div className="w_100 align_center marginTop_tiny font_big">S/. 670</div>
+              <div className="w_100 align_center marginTop_tiny font_big">
+                S/. {contentTypes.kitDuTodBeats}
+              </div>
             </section>
           </div>
         </div>
@@ -131,9 +144,9 @@ export default class Home extends Component {
               officia facere architecto aperiam doloribus deserunt natus nisi!
             </p>
             <div className="section_middle_center w_60">
-              <button className="button font_small">
+              <Link to="/corporativo" className="button font_small">
                 Consulte nuestros precios&nbsp;corporativos aquí
-              </button>
+              </Link>
             </div>
           </div>
         </div>

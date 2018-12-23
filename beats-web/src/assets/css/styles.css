@@ -7,7 +7,7 @@
 
 @media all and (min-width: 1px) {
   header {
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 999;
   }
@@ -18,13 +18,21 @@
     font-size: 3rem;
     cursor: pointer;
     margin-bottom: 50px;
+    position: fixed;
+    right: 10px;
+    top: 40px;
   }
 }
 
 @media all and (min-width: 1024px) {
+  header {
+    position: fixed;
+  }
   .menu {
     font-size: 4rem;
     margin-bottom: 10vh;
+    position: relative;
+    top: 0;
   }
 }
 
@@ -221,7 +229,7 @@
 }
 
 .playListSoundCloud {
-  width: 80vw !important;
+  width: 78vw !important;
   height: 70vh !important;
   position: relative !important;
 }
@@ -297,6 +305,26 @@
   }
 }
 
+@media all and (min-width: 1px) {
+  .inputs {
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-family: "Bariol-Regular";
+    letter-spacing: .3rem;
+  }
+  .inputs:focus {
+    -webkik-appearance: inherit;
+  }
+  label {
+    display: block;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -365,7 +393,7 @@ p {
   border: none;
   -webkit-transition: all ease-in-out .4s;
   transition: all ease-in-out .4s;
-  margin: 20px auto 0;
+  margin: 20px 0 0;
   padding: 10px 30px;
 }
 
