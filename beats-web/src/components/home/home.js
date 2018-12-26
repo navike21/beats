@@ -75,9 +75,9 @@ export default class Home extends Component {
                 Creamos tu canción en versión acústica y te la enviamos al móvil en un plazo máximo
                 de 24 horas.
               </p>
-              <button className="button font_normal">
+              <Link to="/beatsmovil" className="button font_normal">
                 A sólo S/. {parseFloat(contentTypes.movilBeats).toFixed(2)}
-              </button>
+              </Link>
             </section>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default class Home extends Component {
               officia facere architecto aperiam doloribus deserunt natus nisi!
             </p>
             <div className="section_middle_center w_60">
-              <Link to="/corporativo" className="button font_small">
+              <Link to="/corporativo" className="button font_small align_center">
                 Consulte nuestros precios&nbsp;corporativos aquí
               </Link>
             </div>
@@ -156,7 +156,9 @@ export default class Home extends Component {
             ¿Estás listo para empezar?
           </h2>
           <div className="section_middle_center w_100 marginBottom_big">
-            <button className="button font_small">Pide tu canción</button>
+            <Link to="/pedido" className="button font_small">
+              Pide tu canción
+            </Link>
           </div>
         </div>
         <div className="w_100 section_middle_center purpleBackground spaceInVertical_big">

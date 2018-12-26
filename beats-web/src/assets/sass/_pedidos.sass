@@ -1,0 +1,39 @@
+@media all and (min-width: 1px)
+  .pedidosBeats
+    position: relative
+    z-index: 2
+    overflow: hidden
+    &::after
+      content: ""
+      background: url(../../images/fondo_pedido.png) no-repeat center center
+      background-size: cover
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: -1
+      filter: blur(4px)
+    &::before
+      content: ""
+      background-color: rgba($blackColor, .8)
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 0
+
+  .options
+    background-color: $whiteColor
+    overflow: hidden
+    width: 90%
+    h2
+      color: $pinkColor
+      font-size: 1.5rem
+      padding: 15px 20px
+      margin: 0
+    p
+      color: $blackColor
+      font-size: 1.1rem
+      padding: 0 20px 20px

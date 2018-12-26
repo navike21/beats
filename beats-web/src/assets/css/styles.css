@@ -213,10 +213,43 @@
   }
 }
 
-.slick-list {
-  width: 100vw;
-  outline: none;
-  margin: 0;
+@media all and (min-width: 1px) {
+  .slick-slider {
+    width: 100%;
+  }
+  .slick-list {
+    outline: none;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .slick-track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+  }
+  .slick-slide {
+    padding: 10px;
+  }
+}
+
+@media all and (min-width: 760px) {
+  .slick-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 
 .playList {
@@ -290,7 +323,7 @@
     height: 100%;
     z-index: 0;
   }
-  .preciosCorporativos .wrappBussiness {
+  .wrappBussiness {
     position: relative;
     z-index: 3;
   }
@@ -322,6 +355,84 @@
   }
   label {
     display: block;
+  }
+}
+
+@media all and (min-width: 1px) {
+  .beatsMovil {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .beatsMovil::after {
+    content: "";
+    background: url(../../images/beats_mobil.jpg) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
+  }
+  .beatsMovil::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+@media all and (min-width: 1px) {
+  .pedidosBeats {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .pedidosBeats::after {
+    content: "";
+    background: url(../../images/fondo_pedido.png) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
+  }
+  .pedidosBeats::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  .options {
+    background-color: #ffffff;
+    overflow: hidden;
+    width: 90%;
+  }
+  .options h2 {
+    color: #dd1c55;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    margin: 0;
+  }
+  .options p {
+    color: #000000;
+    font-size: 1.1rem;
+    padding: 0 20px 20px;
   }
 }
 
@@ -415,6 +526,23 @@ p {
   border-radius: 15px;
   width: 100%;
   text-align: center;
+}
+
+.backgroundImg {
+  height: 37vh;
+  overflow: hidden;
+}
+
+.backgroundImg img {
+  width: 100%;
+  -webkit-transform: scale(1.45);
+          transform: scale(1.45);
+}
+
+@media all and (min-width: 720px) {
+  .backgroundImg {
+    max-height: 40vw;
+  }
 }
 
 @media all and (min-width: 1800px) {

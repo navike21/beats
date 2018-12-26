@@ -1,4 +1,20 @@
-.slick-list
-  width: 100vw 
-  outline: none
-  margin: 0
+@media all and (min-width: 1px)
+  .slick-slider
+    width: 100%
+  .slick-list
+    outline: none
+    margin: 0 auto
+    width: 100%
+  .slick-track
+    display: flex
+    margin: auto
+  .slick-slide
+    padding: 10px
+    
+@media all and (min-width: 760px)
+  .slick-list
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-content: flex-start
+    align-items: flex-start

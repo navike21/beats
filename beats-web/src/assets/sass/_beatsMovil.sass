@@ -1,0 +1,25 @@
+@media all and (min-width: 1px)
+  .beatsMovil
+    position: relative
+    z-index: 2
+    overflow: hidden
+    &::after
+      content: ""
+      background: url(../../images/beats_mobil.jpg) no-repeat center center
+      background-size: cover
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: -1
+      filter: blur(4px)
+    &::before
+      content: ""
+      background-color: rgba($blackColor, .8)
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 0

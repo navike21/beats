@@ -6,6 +6,8 @@
 @import _playList
 @import _prices
 @import _form
+@import _beatsMovil
+@import _pedidos
 
 
 ::-webkit-scrollbar
@@ -74,6 +76,19 @@ p
   border-radius: 15px
   width: 100%
   text-align: center
+
+.backgroundImg
+  height: 37vh
+  overflow: hidden
+  img
+    width: 100%
+    transform: scale(1.45)
+
+
+
+@media all and (min-width: 720px)
+  .backgroundImg
+    max-height: 40vw
 
 @media all and (min-width: 1800px)
   html
