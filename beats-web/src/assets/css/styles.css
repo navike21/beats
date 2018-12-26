@@ -228,7 +228,7 @@
     display: flex;
     margin: auto;
   }
-  .slick-slide {
+  .slick-slide > div {
     padding: 10px;
   }
 }
@@ -433,6 +433,7 @@
     color: #000000;
     font-size: 1.1rem;
     padding: 0 20px 20px;
+    letter-spacing: 1px;
   }
 }
 
@@ -534,14 +535,14 @@ p {
 }
 
 .backgroundImg img {
-  width: 100%;
-  -webkit-transform: scale(1.45);
-          transform: scale(1.45);
+  height: 100%;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 @media all and (min-width: 720px) {
   .backgroundImg {
-    max-height: 40vw;
+    max-height: 30vw;
   }
 }
 

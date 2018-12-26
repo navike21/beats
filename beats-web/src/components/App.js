@@ -5,6 +5,7 @@ import Home from './home/home';
 import Corporativo from './corporativo/corporativo';
 import Beatsmovil from './beatsmovil/beatsmovil';
 import Pedido from './pedidos/pedido';
+import Personas from './pedidos/personas';
 
 function CustomLinkExample() {
   return (
@@ -12,9 +13,10 @@ function CustomLinkExample() {
       <div className="w_100 section_middle_center">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/corporativo" component={Corporativo} />
-          <Route path="/beatsmovil" component={Beatsmovil} />
-          <Route path="/pedido" component={Pedido} />
+          <Route exact path="/corporativo" component={Corporativo} />
+          <Route exact path="/beatsmovil" component={Beatsmovil} />
+          <Route exact path="/pedido" component={Pedido} />
+          <Route exact path="/pedido/personas" component={Personas} />
           <Route component={NoMatch} />
         </Switch>
       </div>

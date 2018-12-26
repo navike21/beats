@@ -41,25 +41,26 @@ export default class Pedido extends Component {
         }
       ]
     };
+
     return (
       <div className="w_100">
         <Header />
         <div className="w_100 section_middle_center full_min_h pedidosBeats spaceInBottom_normal">
           <div className="wrappBussiness section_middle_center whiteColor w_80">
             <h2 className="whiteColor font_light font_big section_middle_center marginBottom_biggest w_75 align_center">
-              <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Píde
+              <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Pide
               tu&nbsp;canción
             </h2>
             <div className="w_100 section_middle_center">
               <Slider {...settingsSlider}>
-                <Link to="" className="options">
+                <Link to="/pedido/personas" className="options">
                   <div className="section_middle_center w_100 backgroundImg">
                     <img src={personas} alt="Personas" />
                   </div>
                   <h2>Personas</h2>
                   <p>Comienza a hacer de esa historia. ¡Tu&nbsp;mejor canción!</p>
                 </Link>
-                <Link to="" className="options">
+                <Link to="/corporativo" className="options">
                   <div className="section_middle_center w_100 backgroundImg">
                     <img src={empresas} alt="Empresas" />
                   </div>
