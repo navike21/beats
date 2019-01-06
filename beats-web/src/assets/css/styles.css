@@ -407,14 +407,16 @@
 @media all and (min-width: 1px) {
   .pedidosBeats,
   .generoMusical,
-  .selectCantante {
+  .selectCantante,
+  .selectKit {
     position: relative;
     z-index: 2;
     overflow: hidden;
   }
   .pedidosBeats::after,
   .generoMusical::after,
-  .selectCantante::after {
+  .selectCantante::after,
+  .selectKit::after {
     content: "";
     background-repeat: no-repeat;
     background-position: center center;
@@ -430,7 +432,8 @@
   }
   .pedidosBeats::before,
   .generoMusical::before,
-  .selectCantante::before {
+  .selectCantante::before,
+  .selectKit::before {
     content: "";
     background-color: rgba(0, 0, 0, 0.75);
     position: absolute;
@@ -448,6 +451,9 @@
   }
   .selectCantante::after {
     background-image: url(../../images/cantada.jpg);
+  }
+  .selectKit::after {
+    background-image: url(../../images/select-kit.jpg);
   }
   .options {
     background-color: #ffffff;

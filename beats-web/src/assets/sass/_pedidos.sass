@@ -1,7 +1,8 @@
 @media all and (min-width: 1px)
   .pedidosBeats,
   .generoMusical,
-  .selectCantante
+  .selectCantante,
+  .selectKit
     position: relative
     z-index: 2
     overflow: hidden
@@ -36,6 +37,9 @@
   .selectCantante
     &::after
       background-image: url(../../images/cantada.jpg)
+  .selectKit
+    &::after
+      background-image: url(../../images/select-kit.jpg)
 
   .options
     background-color: $whiteColor

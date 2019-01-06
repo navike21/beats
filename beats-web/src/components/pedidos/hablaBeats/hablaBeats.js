@@ -24,9 +24,11 @@ export default class HablaBeats extends Component {
     let subCategoriaBeats = [];
     let generoMusica = [];
     let selectCantante = [];
+    let selectKit = [];
     localStorage.setItem('subCategoriaBeats', JSON.stringify(subCategoriaBeats));
     localStorage.setItem('generoMusica', JSON.stringify(generoMusica));
     localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
+    localStorage.setItem('selectKit', JSON.stringify(selectKit));
   }
 
   _redirectOption = () => {
@@ -49,7 +51,7 @@ export default class HablaBeats extends Component {
   _historyStorage = () => {
     let nameUrl = this.state.nameUrl;
     let subcategoriaBeats = [nameUrl];
-    localStorage.setItem('subCategoriaBeats', JSON.stringify(subcategoriaBeats));
+    localStorage.setItem('subCategoriaBeats', subcategoriaBeats);
   };
 
   render() {

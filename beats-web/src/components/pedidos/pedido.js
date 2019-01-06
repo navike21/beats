@@ -10,6 +10,21 @@ import personas from '../../images/personas.jpg';
 import empresas from '../../images/empresas.jpg';
 
 export default class Pedido extends Component {
+  componentDidMount() {
+    // our array
+    let categoriaBeats = [];
+    let subCategoriaBeats = [];
+    let generoMusica = [];
+    let selectCantante = [];
+    let selectKit = [];
+    localStorage.setItem('categoriaBeats', JSON.stringify(categoriaBeats));
+    localStorage.setItem('subCategoriaBeats', JSON.stringify(subCategoriaBeats));
+    localStorage.setItem('generoMusica', JSON.stringify(generoMusica));
+    localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
+    localStorage.setItem('selectKit', JSON.stringify(selectKit));
+    // console.log(localStorage.getItem("categoriaBeats"));
+    // console.log(localStorage.getItem("subCategoriaBeats"));
+  }
   render() {
     var settingsSlider = {
       dots: true,

@@ -26,10 +26,12 @@ export default class Personas extends Component {
     let subCategoriaBeats = [];
     let generoMusica = [];
     let selectCantante = [];
+    let selectKit = [];
     localStorage.setItem('categoriaBeats', JSON.stringify(categoriaBeats));
     localStorage.setItem('subCategoriaBeats', JSON.stringify(subCategoriaBeats));
     localStorage.setItem('generoMusica', JSON.stringify(generoMusica));
     localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
+    localStorage.setItem('selectKit', JSON.stringify(selectKit));
     // console.log(localStorage.getItem("categoriaBeats"));
     // console.log(localStorage.getItem("subCategoriaBeats"));
   }
@@ -53,9 +55,10 @@ export default class Personas extends Component {
 
   _historyStorage = () => {
     let nameUrl = this.state.nameUrl;
-    let url = this.state.urlTo;
-    let categoriaBeats = [nameUrl, url];
-    localStorage.setItem('categoriaBeats', JSON.stringify(categoriaBeats));
+    // let url = this.state.urlTo;
+    // let categoriaBeats = [nameUrl, url];
+    let categoriaBeats = nameUrl;
+    localStorage.setItem('categoriaBeats', categoriaBeats);
   };
 
   render() {

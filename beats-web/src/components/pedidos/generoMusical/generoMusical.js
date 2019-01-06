@@ -25,8 +25,10 @@ export default class GeneroMusical extends Component {
   componentDidMount() {
     let generoMusica = [];
     let selectCantante = [];
+    let selectKit = [];
     localStorage.setItem('generoMusica', JSON.stringify(generoMusica));
     localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
+    localStorage.setItem('selectKit', JSON.stringify(selectKit));
   }
 
   _redirectOption = () => {
@@ -49,7 +51,7 @@ export default class GeneroMusical extends Component {
   _historyStorage = () => {
     let nameUrl = this.state.nameUrl;
     let generoMusica = [nameUrl];
-    localStorage.setItem('generoMusica', JSON.stringify(generoMusica));
+    localStorage.setItem('generoMusica', generoMusica);
   };
   render() {
     let settingsSlider = {

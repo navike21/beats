@@ -22,12 +22,14 @@ export default class Cantada extends Component {
 
   componentDidMount() {
     let selectCantante = [];
+    let selectKit = [];
     localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
+    localStorage.setItem('selectKit', JSON.stringify(selectKit));
   }
 
   _redirectOption = () => {
     if (this.state.redirect) {
-      return <Redirect push to={'/genero-musical/' + this.state.urlTo} />;
+      return <Redirect push to={'/genero-musical/select-cantante/' + this.state.urlTo} />;
     }
   };
 
@@ -35,7 +37,7 @@ export default class Cantada extends Component {
     this.setState(
       {
         redirect: true,
-        urlTo: 'select-cantante',
+        urlTo: 'kit-beats',
         nameUrl: nameUrl
       },
       this._historyStorage
@@ -45,7 +47,7 @@ export default class Cantada extends Component {
   _historyStorage = () => {
     let nameUrl = this.state.nameUrl;
     let selectCantante = [nameUrl];
-    localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
+    localStorage.setItem('selectCantante', selectCantante);
   };
   render() {
     let settingsSlider = {
