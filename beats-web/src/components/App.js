@@ -7,6 +7,12 @@ import Beatsmovil from './beatsmovil/beatsmovil';
 import Pedido from './pedidos/pedido';
 import Personas from './pedidos/personas';
 
+import BeatsLove from './pedidos/beatsLove/beatsLove';
+import LosBeats from './pedidos/losBeats/losBeats';
+import HablaBeats from './pedidos/hablaBeats/hablaBeats';
+import GeneroMusical from './pedidos/generoMusical/generoMusical';
+import Cantada from './pedidos/generoMusical/cantada';
+
 function CustomLinkExample() {
   return (
     <Router>
@@ -17,6 +23,11 @@ function CustomLinkExample() {
           <Route exact path="/beatsmovil" component={Beatsmovil} />
           <Route exact path="/pedido" component={Pedido} />
           <Route exact path="/pedido/personas" component={Personas} />
+          <Route exact path="/beats-love" component={BeatsLove} />
+          <Route exact path="/los-beats" component={LosBeats} />
+          <Route exact path="/habla-beats" component={HablaBeats} />
+          <Route exact path="/genero-musical" component={GeneroMusical} />
+          <Route exact path="/genero-musical/select-cantante" component={Cantada} />
           <Route component={NoMatch} />
         </Switch>
       </div>

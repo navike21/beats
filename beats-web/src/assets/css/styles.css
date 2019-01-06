@@ -336,6 +336,21 @@
   .prices::before {
     opacity: 1;
   }
+  .wrappBussiness {
+    width: 82%;
+  }
+}
+
+@media all and (min-width: 1300px) {
+  .wrappBussiness {
+    width: 77%;
+  }
+}
+
+@media all and (min-width: 1600px) {
+  .wrappBussiness {
+    width: 81%;
+  }
 }
 
 @media all and (min-width: 1px) {
@@ -390,14 +405,19 @@
 }
 
 @media all and (min-width: 1px) {
-  .pedidosBeats {
+  .pedidosBeats,
+  .generoMusical,
+  .selectCantante {
     position: relative;
     z-index: 2;
     overflow: hidden;
   }
-  .pedidosBeats::after {
+  .pedidosBeats::after,
+  .generoMusical::after,
+  .selectCantante::after {
     content: "";
-    background: url(../../images/fondo_pedido.png) no-repeat center center;
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     position: absolute;
     top: 0;
@@ -408,9 +428,11 @@
     -webkit-filter: blur(4px);
             filter: blur(4px);
   }
-  .pedidosBeats::before {
+  .pedidosBeats::before,
+  .generoMusical::before,
+  .selectCantante::before {
     content: "";
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.75);
     position: absolute;
     top: 0;
     left: 0;
@@ -418,10 +440,19 @@
     height: 100%;
     z-index: 0;
   }
+  .pedidosBeats::after {
+    background-image: url(../../images/fondo_pedido.png);
+  }
+  .generoMusical::after {
+    background-image: url(../../images/musicBg.jpg);
+  }
+  .selectCantante::after {
+    background-image: url(../../images/cantada.jpg);
+  }
   .options {
     background-color: #ffffff;
     overflow: hidden;
-    width: 90%;
+    cursor: pointer;
   }
   .options h2 {
     color: #dd1c55;
@@ -433,7 +464,7 @@
     color: #000000;
     font-size: 1.1rem;
     padding: 0 20px 20px;
-    letter-spacing: 1px;
+    letter-spacing: .125rem;
   }
 }
 
@@ -548,6 +579,6 @@ p {
 
 @media all and (min-width: 1800px) {
   html {
-    font-size: 85%;
+    font-size: 80%;
   }
 }

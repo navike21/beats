@@ -1,11 +1,14 @@
 @media all and (min-width: 1px)
-  .pedidosBeats
+  .pedidosBeats,
+  .generoMusical,
+  .selectCantante
     position: relative
     z-index: 2
     overflow: hidden
     &::after
       content: ""
-      background: url(../../images/fondo_pedido.png) no-repeat center center
+      background-repeat: no-repeat
+      background-position: center center
       background-size: cover
       position: absolute
       top: 0
@@ -16,7 +19,7 @@
       filter: blur(4px)
     &::before
       content: ""
-      background-color: rgba($blackColor, .8)
+      background-color: rgba($blackColor, .75)
       position: absolute
       top: 0
       left: 0
@@ -24,10 +27,20 @@
       height: 100%
       z-index: 0
 
+  .pedidosBeats
+    &::after
+      background-image: url(../../images/fondo_pedido.png)
+  .generoMusical
+    &::after
+      background-image: url(../../images/musicBg.jpg)
+  .selectCantante
+    &::after
+      background-image: url(../../images/cantada.jpg)
+
   .options
     background-color: $whiteColor
     overflow: hidden
-    width: 90%
+    cursor: pointer
     h2
       color: $pinkColor
       font-size: 1.5rem
@@ -37,4 +50,4 @@
       color: $blackColor
       font-size: 1.1rem
       padding: 0 20px 20px
-      letter-spacing: 1px
+      letter-spacing: .125rem

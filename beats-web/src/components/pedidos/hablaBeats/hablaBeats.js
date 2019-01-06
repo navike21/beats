@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Slider from 'react-slick';
 
-import Header from '../share/header';
-import Footer from '../share/footer';
+import Header from '../../share/header';
+import Footer from '../../share/footer';
 
-import pico from '../../images/pico.svg';
-import beatsMovil from '../../images/beatsmovil.jpg';
-import beatsLove from '../../images/beats-love.jpg';
-import losBeats from '../../images/los-beats.jpg';
-import hablaBeats from '../../images/habla-beat.jpg';
+import pico from '../../../images/pico.svg';
+import acontecimiento from '../../../images/acontecimiento.jpg';
+import aniversario from '../../../images/aniinerversary.jpg';
+import eventoSocial from '../../../images/evento_social.jpg';
 
-export default class Personas extends Component {
+export default class HablaBeats extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,18 +19,14 @@ export default class Personas extends Component {
       nameUrl: ''
     };
   }
+
   componentDidMount() {
-    // our array
-    let categoriaBeats = [];
     let subCategoriaBeats = [];
     let generoMusica = [];
     let selectCantante = [];
-    localStorage.setItem('categoriaBeats', JSON.stringify(categoriaBeats));
     localStorage.setItem('subCategoriaBeats', JSON.stringify(subCategoriaBeats));
     localStorage.setItem('generoMusica', JSON.stringify(generoMusica));
     localStorage.setItem('selectCantante', JSON.stringify(selectCantante));
-    // console.log(localStorage.getItem("categoriaBeats"));
-    // console.log(localStorage.getItem("subCategoriaBeats"));
   }
 
   _redirectOption = () => {
@@ -40,11 +35,11 @@ export default class Personas extends Component {
     }
   };
 
-  _activateRedirection = (url, nameUrl) => {
+  _activateRedirection = nameUrl => {
     this.setState(
       {
         redirect: true,
-        urlTo: url,
+        urlTo: 'genero-musical',
         nameUrl: nameUrl
       },
       this._historyStorage
@@ -53,9 +48,8 @@ export default class Personas extends Component {
 
   _historyStorage = () => {
     let nameUrl = this.state.nameUrl;
-    let url = this.state.urlTo;
-    let categoriaBeats = [nameUrl, url];
-    localStorage.setItem('categoriaBeats', JSON.stringify(categoriaBeats));
+    let subcategoriaBeats = [nameUrl];
+    localStorage.setItem('subCategoriaBeats', JSON.stringify(subcategoriaBeats));
   };
 
   render() {
@@ -103,60 +97,49 @@ export default class Personas extends Component {
         {this._redirectOption()}
         <Header />
         <div className="w_100 section_middle_center full_min_h pedidosBeats spaceInBottom_normal">
-          <div className="wrappBussiness section_middle_center whiteColor w_78 w_79_desktop">
+          <div className="wrappBussiness section_middle_center whiteColor w_78">
             <h2 className="whiteColor font_light font_big section_middle_center marginBottom_biggest w_75 align_center">
-              <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Selecciona una
-              Categoría
+              <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Habla Beats
             </h2>
             <div className="w_100 section_middle_center">
               <Slider {...settingsSlider}>
-                <Link to="/beatsmovil" className="options">
-                  <div className="section_middle_center w_100 backgroundImg">
-                    <img src={beatsMovil} alt="BeatsMovil" />
-                  </div>
-                  <h2>Beats Móvil</h2>
-                  <p>
-                    Esta canción será compuesta inmediatamente y grabada desde un dispositivo móvil.
-                    Te la enviaremos rápidamente a tu whatsapp.
-                  </p>
-                </Link>
                 <div
-                  onClick={this._activateRedirection.bind(this, 'beats-love', 'Beats Móvil')}
+                  onClick={this._activateRedirection.bind(this, 'Acontecimiento')}
                   className="options"
                 >
                   <div className="section_middle_center w_100 backgroundImg">
-                    <img src={beatsLove} alt="BeatsLove" />
+                    <img src={acontecimiento} alt="Acontecimiento" />
                   </div>
-                  <h2>Beats Love</h2>
+                  <h2>Acontecimiento</h2>
                   <p>
-                    Aquí tu historia de amor ¡es la protagonista! Sorprende a esa persona especial
-                    con una canción que hable sólo de ustedes.
+                    Cualquier pretexto es bueno para un buen reencuentro entre amigos. Que ese
+                    momento ¡tenga una canción especial!
                   </p>
                 </div>
                 <div
-                  onClick={this._activateRedirection.bind(this, 'los-beats', 'Los Beats')}
+                  onClick={this._activateRedirection.bind(this, 'Aniversario')}
                   className="options"
                 >
                   <div className="section_middle_center w_100 backgroundImg">
-                    <img src={losBeats} alt="LosBeats" />
+                    <img src={aniversario} alt="Aniversario" />
                   </div>
-                  <h2>Los Beats</h2>
+                  <h2>Aniversario</h2>
                   <p>
-                    La familia BEATS ¡Somos todos!, Compongamos esa canción perfecta para tu familia
-                    de una manera muy especial.
+                    Celebra ese aniversario del colegio, promo de la universidad, con una canción
+                    que explique tantos buenos momentos.
                   </p>
                 </div>
                 <div
-                  onClick={this._activateRedirection.bind(this, 'habla-beats', 'Habla Beats')}
+                  onClick={this._activateRedirection.bind(this, 'Eventos Socials')}
                   className="options"
                 >
                   <div className="section_middle_center w_100 backgroundImg">
-                    <img src={hablaBeats} alt="HablaBeats" />
+                    <img src={eventoSocial} alt="EventoSocial" />
                   </div>
-                  <h2>Habla Beats</h2>
+                  <h2>Eventos Sociales</h2>
                   <p>
-                    Entre amigos, existen grandes momentos, creemos una canción para que esos
-                    momentos ¡nunca se acaben!
+                    Todo evento social debería tener una canción personalizada, crea una canción
+                    para ese momento especial y que perdure en el tiempo.
                   </p>
                 </div>
               </Slider>
