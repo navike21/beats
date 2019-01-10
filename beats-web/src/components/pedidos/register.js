@@ -44,36 +44,26 @@ export default class Cantada extends Component {
   };
 
   _activateRedirection = () => {
-    console.log(this.state.solicitante);
+    /**Guardamos la data en el localstorage */
     localStorage.setItem('solicitante', JSON.stringify(this.state.solicitante));
+
     this.setState({
-      redirect: false,
+      redirect: true,
       urlTo: 'frm-beats'
     });
   };
 
-  _historyStorage = () => {
-    localStorage.setItem('solicitante', JSON.stringify(this.state.solicitante));
-  };
-
   _namesChange(event) {
-    this.setState({ names: event.target.value }, () => {
-      // console.log(this.state.names);
-    });
+    this.setState({ names: event.target.value });
   }
   _emailChange(event) {
-    this.setState({ email: event.target.value }, () => {
-      // console.log(this.state.email);
-    });
+    this.setState({ email: event.target.value });
   }
   _phoneChange(event) {
-    this.setState({ phone: event.target.value }, () => {
-      // console.log(this.state.phone);
-    });
+    this.setState({ phone: event.target.value });
   }
 
   _validarEmail = text => {
-    // console.log(text);
     let reg = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
     if (reg.test(text) === false) {
       // console.log('Email is Not Correct');
@@ -121,7 +111,7 @@ export default class Cantada extends Component {
     }
 
     if (names && email && telefono) {
-      // construyendo el array
+      // construyendo el array para guardar la data del formulario
       Arrsolicitante['nombres'] = this.state.names.trim();
       Arrsolicitante['email'] = this.state.email.trim();
       Arrsolicitante['telefono'] = this.state.phone.trim();
@@ -133,10 +123,6 @@ export default class Cantada extends Component {
           solicitante: Arrsolicitante
         },
         this._activateRedirection
-        // () => {
-        //   console.log('formulario lleno');
-        //   console.log(this.state.solicitante);
-        // }
       );
     } else {
       setTimeout(() => {
