@@ -569,12 +569,26 @@ p {
 .backgroundImg {
   height: 37vh;
   overflow: hidden;
+  position: relative;
 }
 
 .backgroundImg img {
   height: 100%;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.backgroundImg .price {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(80%, black), to(black));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 80%, black 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$blackColor, endColorstr=$blackColor,GradientType=0 );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+  padding: 10px 20px;
+  z-index: 9;
 }
 
 @media all and (min-width: 720px) {

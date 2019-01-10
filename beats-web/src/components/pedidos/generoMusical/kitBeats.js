@@ -22,6 +22,7 @@ export default class Cantada extends Component {
       redirect: false,
       urlTo: '',
       nameUrl: '',
+      price: 0,
       loading: true,
 
       optionKit: {},
@@ -47,12 +48,13 @@ export default class Cantada extends Component {
     }
   };
 
-  _activateRedirection = nameUrl => {
+  _activateRedirection = (nameUrl, price) => {
     this.setState(
       {
         redirect: true,
         urlTo: 'register',
-        nameUrl: nameUrl
+        nameUrl: nameUrl,
+        price: price
       },
       this._historyStorage
     );
@@ -60,7 +62,8 @@ export default class Cantada extends Component {
 
   _historyStorage = () => {
     let nameUrl = this.state.nameUrl;
-    let selectKit = [nameUrl];
+    let precio = this.state.price;
+    let selectKit = [nameUrl, precio];
     localStorage.setItem('selectKit', selectKit);
   };
 
@@ -74,13 +77,13 @@ export default class Cantada extends Component {
         {
           title: this.state.titleOpt1,
           description: this.state.descript1,
-          price: parseFloat(contentTypes.kitSoTodBeats).toFixed(2),
+          price: parseFloat(contentTypes.kitSoTodBeats).toFixed(0),
           image: todosBeats
         },
         {
           title: this.state.titleOpt2,
           description: this.state.descript2,
-          price: parseFloat(contentTypes.kitSoAcoustic).toFixed(2),
+          price: parseFloat(contentTypes.kitSoAcoustic).toFixed(0),
           image: acustico
         }
       ]
@@ -91,13 +94,13 @@ export default class Cantada extends Component {
         {
           title: this.state.titleOpt1,
           description: this.state.descript1,
-          price: parseFloat(contentTypes.kitDuTodBeats).toFixed(2),
+          price: parseFloat(contentTypes.kitDuTodBeats).toFixed(0),
           image: todosBeats
         },
         {
           title: this.state.titleOpt2,
           description: this.state.descript2,
-          price: parseFloat(contentTypes.kitDuAcoustic).toFixed(2),
+          price: parseFloat(contentTypes.kitDuAcoustic).toFixed(0),
           image: acustico
         }
       ]
@@ -184,11 +187,15 @@ export default class Cantada extends Component {
                     return (
                       <div
                         key={index}
-                        onClick={this._activateRedirection.bind(this, 'Hombre')}
+                        onClick={this._activateRedirection.bind(this, value.title, value.price)}
                         className="options"
                       >
                         <div className="section_middle_center w_100 backgroundImg">
                           <img src={value.image} alt={value.title} />
+                          <div className="price section_middle_right">
+                            <span className="font_big">S/. {value.price}</span>
+                            <span className="w_100">{this.state.optionKit.kitName}</span>
+                          </div>
                         </div>
                         <h2>{value.title}</h2>
                         <p>{value.description}</p>

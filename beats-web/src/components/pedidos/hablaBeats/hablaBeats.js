@@ -8,7 +8,6 @@ import Footer from '../../share/footer';
 import pico from '../../../images/pico.svg';
 import acontecimiento from '../../../images/acontecimiento.jpg';
 import aniversario from '../../../images/aniinerversary.jpg';
-import eventoSocial from '../../../images/evento_social.jpg';
 
 export default class HablaBeats extends Component {
   constructor(props) {
@@ -119,29 +118,16 @@ export default class HablaBeats extends Component {
                   </p>
                 </div>
                 <div
-                  onClick={this._activateRedirection.bind(this, 'Aniversario')}
+                  onClick={this._activateRedirection.bind(this, 'Aniversario Social')}
                   className="options"
                 >
                   <div className="section_middle_center w_100 backgroundImg">
-                    <img src={aniversario} alt="Aniversario" />
+                    <img src={aniversario} alt="AniversarioSocial" />
                   </div>
-                  <h2>Aniversario</h2>
+                  <h2>Aniversario Social</h2>
                   <p>
                     Celebra ese aniversario del colegio, promo de la universidad, con una canción
                     que explique tantos buenos momentos.
-                  </p>
-                </div>
-                <div
-                  onClick={this._activateRedirection.bind(this, 'Eventos Socials')}
-                  className="options"
-                >
-                  <div className="section_middle_center w_100 backgroundImg">
-                    <img src={eventoSocial} alt="EventoSocial" />
-                  </div>
-                  <h2>Eventos Sociales</h2>
-                  <p>
-                    Todo evento social debería tener una canción personalizada, crea una canción
-                    para ese momento especial y que perdure en el tiempo.
                   </p>
                 </div>
               </Slider>

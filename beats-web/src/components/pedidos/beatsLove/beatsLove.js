@@ -9,7 +9,6 @@ import pico from '../../../images/pico.svg';
 import nuestraHistoria from '../../../images/nuestra_historia.jpg';
 import aniversario from '../../../images/aniversario.jpg';
 import matrimonio from '../../../images/matrimonio.jpg';
-import hablaBeats from '../../../images/habla-beat.jpg';
 
 export default class BeatsLove extends Component {
   constructor(props) {
@@ -143,19 +142,6 @@ export default class BeatsLove extends Component {
                   <p>
                     La familia BEATS ¡Somos todos!, Compongamos esa canción perfecta para tu familia
                     de una manera muy especial.
-                  </p>
-                </div>
-                <div
-                  onClick={this._activateRedirection.bind(this, 'Día Especial')}
-                  className="options"
-                >
-                  <div className="section_middle_center w_100 backgroundImg">
-                    <img src={hablaBeats} alt="HablaBeats" />
-                  </div>
-                  <h2>Día especial</h2>
-                  <p>
-                    Entre amigos, existen grandes momentos, creemos una canción para que esos
-                    momentos ¡nunca se acaben!
                   </p>
                 </div>
               </Slider>
