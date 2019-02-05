@@ -48,30 +48,39 @@ export default class Pago extends Component {
     let cantante = localStorage.getItem('selectCantante');
     let referencia = '';
 
-    let hex_md5v = md5.hex_md5( contentTypes.apiKey+"~"+contentTypes.merchantId+"~"+this.state.reference+"~"+this.state.monto+"~"+contentTypes.moneda );
-
+    
     if (cantante === 'Dúo'){
       referencia = 'Kit Dúo';
     } else {
       referencia = 'Kit Solista';
     }
+    let hex_md5v = md5.hex_md5(contentTypes.apiKey+"~"+contentTypes.merchantId+"~"+referencia+"~"+kit[1]+"~"+contentTypes.moneda);
+    console.log(referencia);
 
     this.setState({
       description: kit[0],
       reference: referencia,
       monto: kit[1],
       signature: hex_md5v
-    })
+    });
+
   }
 
   _nroPedido = ()=> {
     var now = new Date();
     var y = now.getFullYear();
     var m = now.getMonth() + 1;
-    var d = now.getDay();
+    var d = now.getDate();
+    var h = now.getHours();
+    var min = now.getMinutes();
+    var s = now.getSeconds();
+
+    var pedido_nro = y+''+m+''+d+''+h+''+min+''+s;
+
+    localStorage.setItem('pedido_nro', pedido_nro)
 
     this.setState({
-      nroPedido: y+''+m+''+d
+      nroPedido: pedido_nro
     })
     // var mm = m < 10 ? '0' + m : m;
     // var dd = d < 10 ? '0' + d : d;
@@ -93,7 +102,11 @@ export default class Pago extends Component {
             <h2 className="whiteColor font_light font_big section_middle_center marginBottom_biggest w_75 align_center">
               <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Efectúa tu pago
             </h2>
-            <div className="frmBeats w_95 w_40_desktop">
+            <div className="w_100 section_middle_center">
+              <p className="w_95 align_center">{this.state.reference} | {this.state.description} | {localStorage.getItem('generoMusica')}</p>
+              <p className="w_95 align_center font_bold font_medium marginTopAll_small">S/. {this.state.monto}</p>
+            </div>
+            <div className="frmBeats w_95 w_40_desktop section_middle_center">
               <form method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
                 <input name="merchantId"    type="hidden"  value={contentTypes.merchantId} />
                 <input name="accountId"     type="hidden"  value={contentTypes.accountId} />
@@ -111,8 +124,11 @@ export default class Pago extends Component {
                 <input name="buyerEmail"      type="hidden"  value={this.state.email} />
                 <input name="responseUrl"     type="hidden"  value="https://beatsmusica.com/respuestapago/" />
                 <input name="confirmationUrl" type="hidden"  value="https://beatsmusica.com/confirmapago/" />
-                <input name="Submit" type="submit" value="Pagar" className="pagar" />
+                <input name="Submit" type="submit" value="PAGAR AHORA" className="button w_100 font_medium" />
               </form>
+              <p className="w_100 align_center whiteColor marginTop_big font_small">
+                Estamos a un paso para culminar con tu pedido
+              </p>
             </div>
           </div>
         </div>
