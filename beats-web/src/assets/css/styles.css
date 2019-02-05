@@ -371,6 +371,19 @@
   label {
     display: block;
   }
+  .history {
+    height: 30vh;
+    border: 1px solid #ffffff;
+  }
+  .pagar {
+    background-color: #dd1c55;
+    color: #ffffff;
+    border: 0;
+    width: 150px;
+    display: block;
+    margin: auto;
+    padding: 15px 0;
+  }
 }
 
 @media all and (min-width: 1px) {
@@ -652,3 +665,4 @@ p {
     font-size: 80%;
   }
 }
+/*# sourceMappingURL=styles.css.map */

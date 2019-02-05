@@ -14,6 +14,8 @@ import GeneroMusical from './pedidos/generoMusical/generoMusical';
 import Cantada from './pedidos/generoMusical/cantada';
 import kitBeats from './pedidos/generoMusical/kitBeats';
 import registerUser from './pedidos/register';
+import formularioPedido from './pedidos/formulario';
+import Pago from './pedidos/pago';
 
 function CustomLinkExample() {
   return (
@@ -32,6 +34,8 @@ function CustomLinkExample() {
           <Route exact path="/genero-musical/select-cantante" component={Cantada} />
           <Route exact path="/genero-musical/select-cantante/kit-beats" component={kitBeats} />
           <Route exact path="/register" component={registerUser} />
+          <Route exact path="/formulario-pedido" component={formularioPedido} />
+          <Route exact path="/pago" component={Pago} />
           <Route component={NoMatch} />
         </Switch>
       </div>

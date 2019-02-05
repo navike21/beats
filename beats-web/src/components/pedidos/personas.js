@@ -124,7 +124,7 @@ export default class Personas extends Component {
                   </p>
                 </Link>
                 <div
-                  onClick={this._activateRedirection.bind(this, 'beats-love', 'Beats Móvil')}
+                  onClick={this._activateRedirection.bind(this, 'beats-love', 'Beats Love')}
                   className="options"
                 >
                   <div className="section_middle_center w_100 backgroundImg">
