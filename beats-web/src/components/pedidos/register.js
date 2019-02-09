@@ -156,7 +156,7 @@ export default class Cantada extends Component {
       .then(result => result.json())
       // .then(result => console.log(result.results[0].name))
       .then(jsonget =>{
-        console.log(jsonget.results[0])
+        // console.log(jsonget.results[0])
         if(jsonget.results[0] !== undefined){
           localStorage.setItem('solicitante', jsonget.results[0].pk);
           this.setState({
@@ -194,7 +194,7 @@ export default class Cantada extends Component {
       })
       .then(result => result.json())
       .then(result =>  {
-        console.log(result);
+        // console.log(result);
         localStorage.setItem('solicitante', result.pk);
       })
     }
