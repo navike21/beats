@@ -6,7 +6,8 @@ import pico from '../../images/pico.svg';
 
 import { contentTypes, url } from '../share/settings';
 
-import md5 from "react-native-md5";
+// import md5 from "react-native-md5";
+import md5 from 'md5';
 
 export default class Pago extends Component {
   constructor(props) {
@@ -18,11 +19,15 @@ export default class Pago extends Component {
       signature: '',
       nombres: '',
       email: '',
+      phone: '',
       nroPedido: ''
     };
   }
+
+  
   _searchUser = (id) => {
-    // if(email !== ""){
+    let kit = localStorage.getItem('selectKit').split(',');
+    if(kit[0] !== "Beats Móvil"){
       fetch( `${url.link}/usuario-beats/?email=&id=${id}`, {
         method: 'GET',
         headers: {
@@ -37,31 +42,49 @@ export default class Pago extends Component {
         // console.log(jsonget.results[0])
         this.setState({
           nombres: jsonget.results[0].name,
-          email: jsonget.results[0].email
+          email: jsonget.results[0].email,
+          phone: jsonget.results[0].telefono
         })
         
       });
-    // }
+    }
+    else {
+      var json = JSON.parse(localStorage.getItem('detailPedido'));
+      this.setState({
+        nombres: json.nombres,
+        email: json.email,
+        phone: json.telefono
+      })
+    }
   }
   _getInfoDescripcion = () =>{
     let kit = localStorage.getItem('selectKit').split(',');
     let cantante = localStorage.getItem('selectCantante');
     let referencia = '';
+    let precio = kit[1];
+    let Api = contentTypes.apiKey;
+    let merchantId = contentTypes.merchantId;
+    let moneda = contentTypes.moneda;
 
-    
-    if (cantante === 'Dúo'){
-      referencia = 'Kit Dúo';
-    } else {
-      referencia = 'Kit Solista';
+    if (kit[0] === 'Beats Móvil'){
+      referencia = 'Pedido';
     }
-    let hex_md5v = md5.hex_md5(contentTypes.apiKey+"~"+contentTypes.merchantId+"~"+referencia+"~"+kit[1]+"~"+contentTypes.moneda);
-    console.log(referencia);
-
+    else {
+      if (cantante === 'Dúo'){
+        referencia = 'Kit Duo';
+      } else {
+        referencia = 'Kit Solista';
+      }
+    }
+    // console.log(Api+'~'+merchantId+'~'+referencia+'~'+precio+'~'+moneda);
+    let hex_md5v = md5(Api+'~'+merchantId+'~'+referencia+'~'+precio+'~'+moneda);
+    // console.log(hex_md5v);
+    
     this.setState({
       description: kit[0],
       reference: referencia,
       monto: kit[1],
-      signature: hex_md5v
+      signature: String(hex_md5v)
     });
 
   }
@@ -82,9 +105,6 @@ export default class Pago extends Component {
     this.setState({
       nroPedido: pedido_nro
     })
-    // var mm = m < 10 ? '0' + m : m;
-    // var dd = d < 10 ? '0' + d : d;
-    // return '' + y + mm + dd;
 }
 
   componentDidMount = () =>{
@@ -108,22 +128,23 @@ export default class Pago extends Component {
             </div>
             <div className="frmBeats w_95 w_40_desktop section_middle_center">
               <form method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
-                <input name="merchantId"    type="hidden"  value={contentTypes.merchantId} />
-                <input name="accountId"     type="hidden"  value={contentTypes.accountId} />
-                <input name="description"   type="hidden"  value={this.state.description} />
-                <input name="referenceCode" type="hidden"  value={this.state.reference} />
-                <input name="amount"        type="hidden"  value={this.state.monto} />
-                <input name="tax"           type="hidden"  value="0.00" />
-                <input name="taxReturnBase" type="hidden"  value="0.00" />
-                <input name="currency"      type="hidden"  value={contentTypes.moneda} />
-                <input name="extra1"        type="hidden"  value={this.state.nroPedido} />
-                <input name="lng" type="hidden" value="es" />
-                <input name="signature"     type="hidden"  value={this.state.signature} />
-                <input name="buyerFullName" type="hidden"  value={this.state.nombres} />
-                <input name="test"            type="hidden"  value="0" />
-                <input name="buyerEmail"      type="hidden"  value={this.state.email} />
-                <input name="responseUrl"     type="hidden"  value="https://beatsmusica.com/respuestapago/" />
-                <input name="confirmationUrl" type="hidden"  value="https://beatsmusica.com/confirmapago/" />
+                <input name="merchantId"      type="hidden"   value={contentTypes.merchantId} />
+                <input name="referenceCode"   type="hidden"   value={this.state.reference} />
+                <input name="description"     type="hidden"   value={this.state.description} />
+                <input name="amount"          type="hidden"   value={this.state.monto} />
+                <input name="tax"             type="hidden"   value="1" />
+                <input name="taxReturnBase"   type="hidden"   value="0" />
+                <input name="signature"       type="hidden"   value={this.state.signature} />
+                <input name="accountId"       type="hidden"   value={contentTypes.accountId} />
+                <input name="currency"        type="hidden"   value={contentTypes.moneda} />
+                <input name="extra1"          type="hidden"   value={this.state.nroPedido} />
+                {/* <input name="lng"             type="hidden"   value="es" /> */}
+                <input name="buyerFullName"   type="hidden"   value={this.state.nombres} />
+                <input name="buyerEmail"      type="hidden"   value={this.state.email} />
+                <input name="telephone"       type="hidden"   value={this.state.phone} />
+                <input name="test"            type="hidden"   value="0" />
+                <input name="responseUrl"     type="hidden"   value="https://beatsmusica.com/respuestapago/" />
+                <input name="confirmationUrl" type="hidden"   value="https://beatsmusica.com/confirmapago/" />
                 <input name="Submit" type="submit" value="PAGAR AHORA" className="button w_100 font_medium" />
               </form>
               <p className="w_100 align_center whiteColor marginTop_big font_small">
