@@ -27,6 +27,9 @@ export default class Home extends Component {
       showPortada: true
     });
   };
+  componentDidMount = () =>{
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <div className="w_100">
@@ -46,7 +49,7 @@ export default class Home extends Component {
             lenguaje de la música"
           </h3>
         </section>
-        <section className="about section_middle_center w_100 purpleBackground full_min_h">
+        <section id="nosotros" className="about section_middle_center w_100 purpleBackground full_min_h">
           <img src={about} alt="About" className="person" />
           <div className="textAbout section_middle_center w_31_desktop w_80">
             <img src={logoBeats} alt="Logo2" className="img_big img_normal_mobile" />
@@ -58,7 +61,7 @@ export default class Home extends Component {
             </p>
           </div>
         </section>
-        <div className="section_middle_center full_min_h w_100 playList">
+        <div id="escuchalo" className="section_middle_center full_min_h w_100 playList">
           <PlayList />
         </div>
 
@@ -82,7 +85,7 @@ export default class Home extends Component {
           </div>
         </div>
 
-        <div className="prices full_min_h w_100 section_middle_center">
+        <div id="precios" className="prices full_min_h w_100 section_middle_center">
           <div className="w_70_desktop section_middle_justify w_70">
             <section className="w_30_desktop w_100 section_middle_center whiteColor">
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
@@ -135,8 +138,7 @@ export default class Home extends Component {
         <div className="preciosCorporativos section_middle_center full_min_h">
           <div className="wrappBussiness section_middle_center">
             <h2 className="whiteColor font_light font_big section_middle_center w_60 marginBottom_biggest w_80">
-              <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Beats for
-              Bussiness
+              <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Beats para Empresas
             </h2>
             <p className="whiteColor font_small w_50_desktop w_80 align_center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, incidunt! Illum

@@ -16,6 +16,7 @@ import kitBeats from './pedidos/generoMusical/kitBeats';
 import registerUser from './pedidos/register';
 import formularioPedido from './pedidos/formulario';
 import Pago from './pedidos/pago';
+import ConfirmaPago from './pedidos/confirmapago';
 
 function CustomLinkExample() {
   return (
@@ -36,6 +37,7 @@ function CustomLinkExample() {
           <Route exact path="/register" component={registerUser} />
           <Route exact path="/formulario-pedido" component={formularioPedido} />
           <Route exact path="/pago" component={Pago} />
+          <Route exact path="/confirmapago" component={ConfirmaPago} />
           <Route component={NoMatch} />
         </Switch>
       </div>

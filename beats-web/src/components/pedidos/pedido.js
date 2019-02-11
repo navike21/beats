@@ -11,6 +11,7 @@ import empresas from '../../images/empresas.jpg';
 
 export default class Pedido extends Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     // our array
     let categoriaBeats = [];
     let subCategoriaBeats = [];

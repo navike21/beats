@@ -10,7 +10,7 @@ export default class VideoBeats extends Component {
       url: null,
       pip: false,
       playing: true,
-      volume: 0.0, //0.5
+      volume: 0.5, //0.5
       muted: false,
       played: 0,
       loaded: 0,
@@ -25,7 +25,10 @@ export default class VideoBeats extends Component {
     // this.showImagePortada();
     this.setState({
       url: this.state.urlYoutube
-    });
+    }, this.playPause());
+    setTimeout(()=>{
+      this.playPause()
+    }, 1)
   }
 
   playPause = () => {
