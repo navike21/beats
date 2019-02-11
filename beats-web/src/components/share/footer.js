@@ -34,6 +34,13 @@ export default class Footer extends Component {
           >
             <i className="fab fa-youtube" />
           </a>
+          <a
+            className="purpleColor2 font_biggest marginHorizontal_smaller"
+            href="https://soundcloud.com/beatsmusica"
+            target="blank"
+          >
+            <i class="fab fa-soundcloud"></i>
+          </a>
         </aside>
         <div className="w_100 section_middle_center marginVertical_medium">
           <img src={Logo} alt="LogoBeats" className="img_small_mobile img_medium" />

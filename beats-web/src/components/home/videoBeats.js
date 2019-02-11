@@ -28,7 +28,7 @@ export default class VideoBeats extends Component {
     }, this.playPause());
     setTimeout(()=>{
       this.playPause()
-    }, 1)
+    }, 300)
   }
 
   playPause = () => {
