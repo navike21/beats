@@ -76,9 +76,6 @@ export default class Home extends Component {
           <meta name="twitter:title" content={this.state.titleWeb} />
           <meta name="twitter:description" content={this.state.descriptionWeb} />
           <meta name="twitter:image" content={this.state.beatsPortada} />
-
-          <meta property="og:title" content={this.state.titleWeb} />
-          <meta property="og:image" content="https://beatsmusica.com/static/media/portada.a4759fd8.png" />
         </MetaTags>
         <Header />
         <VideoBeats showImg={this.showPortada} />
@@ -207,6 +204,13 @@ export default class Home extends Component {
               Pide tu canción
             </Link>
           </div>
+        </div>
+        <div className="section_middle_center w_100 purpleBackground full_min_h">
+          <h2 className="whiteColor font_big w_100 font_light marginBottom_small marginHorizontal_small align_center marginTop_big">
+            Life is Beats, My Blog is yours!
+          </h2>
+          <p className="w_80 w_50_desktop whiteColor font_small marginVertical_small align_center">Bienvenidos al blog oficial de Beats. Aquí te conectarás con ideas novedosas, detalles especiales creados para ti, y diferentes tendencias alrededor del mundo. Comienza a descubrir todo lo que nuestro blog ha preparado para ti.</p>
+          
         </div>
         <div className="w_100 section_middle_center purpleBackground spaceInVertical_big">
           <p className="whiteColor w_80 align_center marginBottom_big marginTop_small font_big font_medium_mobile">

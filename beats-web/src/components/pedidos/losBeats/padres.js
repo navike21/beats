@@ -42,6 +42,16 @@ export default class Padres extends Component {
     this._resaltarEllaChange = this._resaltarEllaChange.bind(this);
     
     this._historiaChange = this._historiaChange.bind(this);
+
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
   }
 
   _nombresElChange(event) {
@@ -94,22 +104,24 @@ export default class Padres extends Component {
 
   _sendFrm = () =>{
     localStorage.setItem('historia', this.state.historia);
-    let detailPedido = {
-      Papa_nombres: this.state.nombresEl,
-      Papa_edad: this.state.edadEl,
-      Papa_nacimiento: this.state.nacimientoEl,
-      Papa_profesion: this.state.profesionEl,
-      Papa_grupo_favorito: this.state.grupoFavoritoEl,
-      Papa_resaltar: this.state.resaltarEl,
+    // let detailPedido = {
+    //   Papa_nombres: this.state.nombresEl,
+    //   Papa_edad: this.state.edadEl,
+    //   Papa_nacimiento: this.state.nacimientoEl,
+    //   Papa_profesion: this.state.profesionEl,
+    //   Papa_grupo_favorito: this.state.grupoFavoritoEl,
+    //   Papa_resaltar: this.state.resaltarEl,
       
-      Mama_nombres: this.state.nombresElla,
-      Mama_edad: this.state.edadElla,
-      Mama_nacimiento: this.state.nacimientoElla,
-      Mama_profesion: this.state.profesionElla,
-      Mama_grupo_favorito: this.state.grupoFavoritoElla,
-      Mama_resaltar: this.state.resaltarElla
-    }
-    localStorage.setItem('detailPedido', JSON.stringify(detailPedido));
+    //   Mama_nombres: this.state.nombresElla,
+    //   Mama_edad: this.state.edadElla,
+    //   Mama_nacimiento: this.state.nacimientoElla,
+    //   Mama_profesion: this.state.profesionElla,
+    //   Mama_grupo_favorito: this.state.grupoFavoritoElla,
+    //   Mama_resaltar: this.state.resaltarElla
+    // }
+
+    let detailPedido = '<h2>Datos del Padre</h2> <p><strong>Nombres: </strong> '+this.state.nombresEl+' </p> <p><strong>Edad: </strong> '+this.state.edadEl+' </p> <p><strong>Nacimiento: </strong> '+this.state.nacimientoEl+' </p> <p><strong>Profesión: </strong> '+this.state.profesionEl+' </p> <p><strong>Grupo Favorito: </strong> '+this.state.grupoFavoritoEl+' </p> <p><strong>Datos a resaltar: </strong> '+this.state.resaltarEl+' </p> <h2>Datos de la Madre</h2> <p><strong>Nombres: </strong> '+this.state.nombresElla+' </p> <p><strong>Edad: </strong> '+this.state.edadElla+' </p> <p><strong>Nacimiento: </strong> '+this.state.nacimientoElla+' </p> <p><strong>Profesión: </strong> '+this.state.profesionElla+' </p> <p><strong>Grupo Favorito: </strong> '+this.state.grupoFavoritoElla+' </p> <p><strong>Datos a resaltar: </strong> '+this.state.resaltarElla+' </p>';
+    localStorage.setItem('detailPedido', detailPedido);
 
     this.setState({
       redirect: true
@@ -121,46 +133,16 @@ export default class Padres extends Component {
       dots: true,
       infinite: false,
       speed: 500,
+      arrows: false,
+      adaptiveHeight: true,
       slidesToShow: 1,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1250,
-          settings: {
-            dots: true,
-            infinite: false,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 910,
-          settings: {
-            dots: true,
-            infinite: false,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            dots: true,
-            infinite: false,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+      slidesToScroll: 1
     };
     return (
       <div className="w_100 section_middle_center full_min_h pedidosBeats spaceInBottom_normal">
       {this._redirectOption()}
         <div className="section_middle_center whiteColor w_78 w_40_desktop">
-          <Slider {...settingsSlider}>
+          <Slider ref={c => (this.slider = c)} {...settingsSlider}>
             <div className="frmBeats w_95 w_40_desktop">
               <h2 className="whiteColor font_light font_big section_middle_center marginBottom_biggest w_100 align_center">
                 <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Información del padre
@@ -184,6 +166,12 @@ export default class Padres extends Component {
               <label htmlFor="relevante" className="font_small font_light marginTop_normal"> Datos que desees Resaltar.* </label>
               <input type="search" id="relevante" name="relevante" className="inputs" value={this.state.resaltarEl} onChange={this._resaltarElChange} />
 
+              <div class="section_middle_right w_100">
+                <button className="button font_normal w_100 w_35_desktop" onClick={this.next}>
+                  Siguiente
+                </button>
+              </div>
+
             </div>
             <div className="frmBeats w_95 w_40_desktop">
               <h2 className="whiteColor font_light font_big section_middle_center marginBottom_biggest w_100 align_center">
@@ -199,7 +187,7 @@ export default class Padres extends Component {
               <label htmlFor="nacimiento" className="font_small font_light marginTop_normal"> Lugar de Nacimiento.* </label>
               <input type="search" id="nacimiento" name="nacimiento" className="inputs" value={this.state.nacimientoElla} onChange={this._nacimientoEllaChange} />
               
-              <label htmlFor="profesion" className="font_small font_light marginTop_normal"> Profesion.* </label>
+              <label htmlFor="profesion" className="font_small font_light marginTop_normal"> Profesión.* </label>
               <input type="search" id="profesion" name="profesion" className="inputs" value={this.state.profesionElla} onChange={this._profesionEllaChange} />
               
               <label htmlFor="grupoFavorito" className="font_small font_light marginTop_normal"> Grupo / Cantante favorito.* </label>
@@ -207,13 +195,27 @@ export default class Padres extends Component {
 
               <label htmlFor="relevante" className="font_small font_light marginTop_normal"> Datos que desees Resaltar.* </label>
               <input type="search" id="relevante" name="relevante" className="inputs" value={this.state.resaltarElla} onChange={this._resaltarEllaChange} />
+
+              <div class="section_middle_center w_100">
+                <button className="button font_normal w_100 w_35_desktop marginRight_small" onClick={this.previous}>
+                  Atrás
+                </button>
+                <div className="w_1"></div>
+                <button className="button font_normal w_100 w_35_desktop" onClick={this.next}>
+                  Siguiente
+                </button>
+              </div>
             </div>
             <div className="frmBeats w_95 w_40_desktop">
               <h2 className="whiteColor font_light font_big section_middle_center marginBottom_biggest w_100 align_center">
                 <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Historia
               </h2>
               <textarea name="mensaje" id="mensaje" className="w_100 inputs history" value={this.state.historia} onChange={this._historiaChange} />
-              <div className="section_middle_right w_100">
+              <div class="section_middle_center w_100">
+                <button className="button font_normal w_100 w_35_desktop marginRight_small" onClick={this.previous}>
+                  Atrás
+                </button>
+                <div className="w_1"></div>
                 <button className="button font_normal w_100 w_35_desktop" onClick={this._sendFrm.bind(this)}>Enviar</button>
               </div>
             </div>
