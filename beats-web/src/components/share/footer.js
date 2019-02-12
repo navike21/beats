@@ -39,7 +39,7 @@ export default class Footer extends Component {
             href="https://soundcloud.com/beatsmusica"
             target="blank"
           >
-            <i class="fab fa-soundcloud"></i>
+            <i className="fab fa-soundcloud"></i>
           </a>
         </aside>
         <div className="w_100 section_middle_center marginVertical_medium">

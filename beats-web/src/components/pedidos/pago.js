@@ -8,6 +8,7 @@ import { contentTypes, url } from '../share/settings';
 
 // import md5 from "react-native-md5";
 import md5 from 'md5';
+import MetaTags from 'react-meta-tags';
 
 export default class Pago extends Component {
   constructor(props) {
@@ -20,7 +21,13 @@ export default class Pago extends Component {
       nombres: '',
       email: '',
       phone: '',
-      nroPedido: ''
+      nroPedido: '',
+      titleWeb: 'Beats música - Pedidos',
+      slogan: 'Selecciona tu canción',
+      descriptionWeb: 'Personaliza tu canción y realiza tu pedido',
+      beatsIcon: 'https://beats-logo.png',
+      beatsPortada: 'https://beatsmusica.com/static/media/portada.a4759fd8.png',
+      urlWeb: 'https://beatsmusica.com/pedido'
     };
   }
 
@@ -116,6 +123,45 @@ export default class Pago extends Component {
   render() {
     return (
       <div className="w_100">
+        <MetaTags>
+          <title>Beats música - Canciones personalizadas</title>
+          <meta name="description" content={this.state.descriptionWeb} />
+          <meta property="author" content={this.state.titleWeb} />
+          <meta property="copyright" content={this.state.titleWeb} />
+
+          <meta name="handheldFriendly" content="true" />
+          <meta name="subject" content={this.state.titleWeb + ' - ' + this.state.slogan} />
+          <meta name="language" content="Español" />
+          <meta name="robots" content="index,follow" />
+          <meta name="googlebot" content="index,follow" />
+          <meta name="classification" content="business" />
+          <meta name="url" content={this.state.urlWeb} />
+          <meta name="identifier-URL" content={this.state.urlWeb} />
+          <meta name="coverage" content="Worldwide" />
+          <meta name="distribution" content="Global" />
+          <meta name="rating" content="General" />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={this.state.urlWeb} />
+          <meta property="og:title" content={this.state.titleWeb} />
+          <meta property="og:description" content={this.state.descriptionWeb} />
+          <meta property="og:locale" content="es_PE" />
+          <meta property="og:image" content={this.state.beatsPortada} />
+          <meta property="og:image:url" content={this.state.beatsPortada} />
+          <meta property="og:image:alt" content={this.state.titleWeb} />
+          <meta property="og:site_name" content={this.state.titleWeb} />
+          <meta property="fb:app_id" content="341860746216953" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@beats_musica" />
+          <meta name="twitter:creator" content="@beats_musica" />
+          <meta name="twitter:title" content={this.state.titleWeb} />
+          <meta name="twitter:description" content={this.state.descriptionWeb} />
+          <meta name="twitter:image" content={this.state.beatsPortada} />
+
+          <meta property="og:title" content={this.state.titleWeb} />
+          <meta property="og:image" content="https://beatsmusica.com/static/media/portada.a4759fd8.png" />
+        </MetaTags>
         <Header />
         <div className="w_100 section_middle_center full_min_h beatsMovil spaceInBottom_normal">
           <div className="wrappBussiness section_middle_center whiteColor w_80">

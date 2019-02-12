@@ -5,6 +5,7 @@ import Footer from '../share/footer';
 import { contentTypes } from '../share/settings';
 
 import pico from '../../images/pico.svg';
+import MetaTags from 'react-meta-tags';
 
 export default class Beatsmovil extends Component {
   constructor(props) {
@@ -16,7 +17,13 @@ export default class Beatsmovil extends Component {
       email: '',
       telefono: '',
       historia: '',
-      price: contentTypes.movilBeats
+      price: contentTypes.movilBeats,
+      titleWeb: 'Beats música - Beats Móvil.',
+      slogan: 'Canción personalizada en 24 horas.',
+      descriptionWeb: 'Creamos tu canción en versión acústica y te la enviamos al móvil en un plazo máximo de 24 horas.',
+      beatsIcon: 'https://beats-logo.png',
+      beatsPortada: 'https://beatsmusica.com/static/media/portada.a4759fd8.png',
+      urlWeb: 'https://beatsmusica.com/beatsmovil'
     };
 
     this._nombresChange = this._nombresChange.bind(this);
@@ -71,6 +78,45 @@ export default class Beatsmovil extends Component {
     return (
       <div className="w_100">
         <Header />
+        <MetaTags>
+          <title>Beats música - Canciones personalizadas</title>
+          <meta name="description" content={this.state.descriptionWeb} />
+          <meta property="author" content={this.state.titleWeb} />
+          <meta property="copyright" content={this.state.titleWeb} />
+
+          <meta name="handheldFriendly" content="true" />
+          <meta name="subject" content={this.state.titleWeb + ' - ' + this.state.slogan} />
+          <meta name="language" content="Español" />
+          <meta name="robots" content="index,follow" />
+          <meta name="googlebot" content="index,follow" />
+          <meta name="classification" content="business" />
+          <meta name="url" content={this.state.urlWeb} />
+          <meta name="identifier-URL" content={this.state.urlWeb} />
+          <meta name="coverage" content="Worldwide" />
+          <meta name="distribution" content="Global" />
+          <meta name="rating" content="General" />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={this.state.urlWeb} />
+          <meta property="og:title" content={this.state.titleWeb} />
+          <meta property="og:description" content={this.state.descriptionWeb} />
+          <meta property="og:locale" content="es_PE" />
+          <meta property="og:image" content={this.state.beatsPortada} />
+          <meta property="og:image:url" content={this.state.beatsPortada} />
+          <meta property="og:image:alt" content={this.state.titleWeb} />
+          <meta property="og:site_name" content={this.state.titleWeb} />
+          <meta property="fb:app_id" content="341860746216953" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@beats_musica" />
+          <meta name="twitter:creator" content="@beats_musica" />
+          <meta name="twitter:title" content={this.state.titleWeb} />
+          <meta name="twitter:description" content={this.state.descriptionWeb} />
+          <meta name="twitter:image" content={this.state.beatsPortada} />
+
+          <meta property="og:title" content={this.state.titleWeb} />
+          <meta property="og:image" content="https://beatsmusica.com/static/media/portada.a4759fd8.png" />
+        </MetaTags>
         {this._redirectOption()}
         <div className="w_100 section_middle_center full_min_h beatsMovil spaceInBottom_normal">
           <div className="wrappBussiness section_middle_center whiteColor w_80">

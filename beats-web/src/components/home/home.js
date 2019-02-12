@@ -15,11 +15,19 @@ import priceImg from '../../images/beats_packs_center.png';
 
 import { contentTypes } from '../share/settings';
 
+import MetaTags from 'react-meta-tags';
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showPortada: false
+      showPortada: false,
+      titleWeb: 'Beats música',
+      slogan: 'Canciones personalizadas',
+      descriptionWeb: 'Somos una Startup dedicada a la creación de canciones personalizadas.',
+      beatsIcon: 'https://beats-logo.png',
+      beatsPortada: 'https://beatsmusica.com/static/media/portada.a4759fd8.png',
+      urlWeb: 'https://beatsmusica.com'
     };
   }
   showPortada = () => {
@@ -33,6 +41,45 @@ export default class Home extends Component {
   render() {
     return (
       <div className="w_100">
+        <MetaTags>
+          <title>Beats música - Canciones personalizadas</title>
+          <meta name="description" content={this.state.descriptionWeb} />
+          <meta property="author" content={this.state.titleWeb} />
+          <meta property="copyright" content={this.state.titleWeb} />
+
+          <meta name="handheldFriendly" content="true" />
+          <meta name="subject" content={this.state.titleWeb + ' - ' + this.state.slogan} />
+          <meta name="language" content="Español" />
+          <meta name="robots" content="index,follow" />
+          <meta name="googlebot" content="index,follow" />
+          <meta name="classification" content="business" />
+          <meta name="url" content={this.state.urlWeb} />
+          <meta name="identifier-URL" content={this.state.urlWeb} />
+          <meta name="coverage" content="Worldwide" />
+          <meta name="distribution" content="Global" />
+          <meta name="rating" content="General" />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={this.state.urlWeb} />
+          <meta property="og:title" content={this.state.titleWeb} />
+          <meta property="og:description" content={this.state.descriptionWeb} />
+          <meta property="og:locale" content="es_PE" />
+          <meta property="og:image" content={this.state.beatsPortada} />
+          <meta property="og:image:url" content={this.state.beatsPortada} />
+          <meta property="og:image:alt" content={this.state.titleWeb} />
+          <meta property="og:site_name" content={this.state.titleWeb} />
+          <meta property="fb:app_id" content="341860746216953" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@beats_musica" />
+          <meta name="twitter:creator" content="@beats_musica" />
+          <meta name="twitter:title" content={this.state.titleWeb} />
+          <meta name="twitter:description" content={this.state.descriptionWeb} />
+          <meta name="twitter:image" content={this.state.beatsPortada} />
+
+          <meta property="og:title" content={this.state.titleWeb} />
+          <meta property="og:image" content="https://beatsmusica.com/static/media/portada.a4759fd8.png" />
+        </MetaTags>
         <Header />
         <VideoBeats showImg={this.showPortada} />
         <section
@@ -141,13 +188,11 @@ export default class Home extends Component {
               <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Beats para Empresas
             </h2>
             <p className="whiteColor font_small w_50_desktop w_80 align_center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, incidunt! Illum
-              veritatis quisquam dicta nihil earum, aliquam quo fugiat. Odio, maiores. Distinctio
-              officia facere architecto aperiam doloribus deserunt natus nisi!
+              La música es la mejor manera para generar engagement con tu marca. Una canción personalizada es la herramienta que necesitas para atraer más clientes a tu negocio.
             </p>
             <div className="section_middle_center w_60">
               <Link to="/corporativo" className="button font_small align_center">
-                Consulte nuestros precios&nbsp;corporativos aquí
+                Consulta nuestros precios&nbsp;corporativos aquí
               </Link>
             </div>
           </div>
