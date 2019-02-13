@@ -18,6 +18,8 @@ import formularioPedido from './pedidos/formulario';
 import Pago from './pedidos/pago';
 import ConfirmaPago from './pedidos/confirmapago';
 
+import DetailBlog from './blog/detailBlog';
+
 function CustomLinkExample() {
   return (
     <Router>
@@ -38,6 +40,7 @@ function CustomLinkExample() {
           <Route exact path="/formulario-pedido" component={formularioPedido} />
           <Route exact path="/pago" component={Pago} />
           <Route exact path="/confirmapago" component={ConfirmaPago} />
+          <Route exact path="/blog/:slug" component={DetailBlog} />
           <Route component={NoMatch} />
         </Switch>
       </div>

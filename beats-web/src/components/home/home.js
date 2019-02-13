@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../share/header';
-import VideoBeats from '../home/videoBeats';
+// import VideoBeats from '../home/videoBeats';
 import PlayList from '../home/playList';
 import Footer from '../share/footer';
+import LastedPost from '../blog/lasted';
 
 import pico from '../../images/pico.svg';
 import correo from '../../images/correo.svg';
@@ -78,7 +79,7 @@ export default class Home extends Component {
           <meta name="twitter:image" content={this.state.beatsPortada} />
         </MetaTags>
         <Header />
-        <VideoBeats showImg={this.showPortada} />
+        {/* <VideoBeats showImg={this.showPortada} /> */}
         <section
           className={
             'portadaHome section_bottom_center w_100 full_min_h ' +
@@ -135,7 +136,7 @@ export default class Home extends Component {
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
                 Beats Acústicos
               </h3>
-              <span className="font_small">(versión acústuca)</span>
+              <span className="font_small">(versión acústica)</span>
               <div className="w_100 align_center marginTop_tiny font_big">
                 S/. {contentTypes.kitSoAcoustic}
               </div>
@@ -159,7 +160,7 @@ export default class Home extends Component {
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
                 Beats Acústicos
               </h3>
-              <span className="font_small">(versión acústuca)</span>
+              <span className="font_small">(versión acústica)</span>
               <div className="w_100 align_center marginTop_tiny font_big">
                 S/. {contentTypes.kitDuAcoustic}
               </div>
@@ -210,6 +211,8 @@ export default class Home extends Component {
             Life is Beats, My Blog is yours!
           </h2>
           <p className="w_80 w_50_desktop whiteColor font_small marginVertical_small align_center">Bienvenidos al blog oficial de Beats. Aquí te conectarás con ideas novedosas, detalles especiales creados para ti, y diferentes tendencias alrededor del mundo. Comienza a descubrir todo lo que nuestro blog ha preparado para ti.</p>
+
+          <LastedPost />
           
         </div>
         <div className="w_100 section_middle_center purpleBackground spaceInVertical_big">

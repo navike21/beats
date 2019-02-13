@@ -1,0 +1,60 @@
+@media all and (min-width: 1px)
+  .portadaBlog
+    overflow: hidden
+    height: 25vw
+    img
+      transform: scale(1.1)
+
+  .blogDetail
+    margin: 20px 0
+    p
+      margin: 10px 0
+      letter-spacing: 1px
+      img
+        width: 100% !important
+        height: auto !important
+    .fecha
+      letter-spacing: 1px
+      font-size: 1.2rem
+      opacity: .5
+  .lastBlog
+    .imagePortada
+      overflow: hidden
+      height: 45vw
+    .itemBlogLast
+      a
+        display: block
+        margin-bottom: 20px
+
+@media all and (min-width: 700px)
+  .lastBlog
+    .itemBlogLast
+      h2
+        min-height: 50px
+    .itemBlogLast:nth-child(2),
+    .itemBlogLast:nth-child(3)
+      width: 49%
+
+@media all and (min-width: 800px)
+  .lastBlog
+    display: grid
+    grid-gap: 1vw
+    grid-template-columns: repeat(3, 1fr)
+    .itemBlogLast
+      grid-column: span 1
+      grid-row: span 1
+      a
+        max-width: 120px
+      h2
+        min-height: 10px
+    .itemBlogLast:first-child
+      grid-column: span 2
+      grid-row: span 2
+      .imagePortada
+        height: 24vw
+
+    .itemBlogLast:nth-child(2),
+    .itemBlogLast:nth-child(3)
+      width: 100%
+      .imagePortada
+        height: 11vw

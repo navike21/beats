@@ -542,6 +542,86 @@
   }
 }
 
+@media all and (min-width: 1px) {
+  .portadaBlog {
+    overflow: hidden;
+    height: 25vw;
+  }
+  .portadaBlog img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  .blogDetail {
+    margin: 20px 0;
+  }
+  .blogDetail p {
+    margin: 10px 0;
+    letter-spacing: 1px;
+  }
+  .blogDetail p img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .blogDetail .fecha {
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    opacity: .5;
+  }
+  .lastBlog .imagePortada {
+    overflow: hidden;
+    height: 45vw;
+  }
+  .lastBlog .itemBlogLast a {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+@media all and (min-width: 700px) {
+  .lastBlog .itemBlogLast h2 {
+    min-height: 50px;
+  }
+  .lastBlog .itemBlogLast:nth-child(2),
+  .lastBlog .itemBlogLast:nth-child(3) {
+    width: 49%;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .lastBlog {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 1vw;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .lastBlog .itemBlogLast {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .lastBlog .itemBlogLast a {
+    max-width: 120px;
+  }
+  .lastBlog .itemBlogLast h2 {
+    min-height: 10px;
+  }
+  .lastBlog .itemBlogLast:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .lastBlog .itemBlogLast:first-child .imagePortada {
+    height: 24vw;
+  }
+  .lastBlog .itemBlogLast:nth-child(2),
+  .lastBlog .itemBlogLast:nth-child(3) {
+    width: 100%;
+  }
+  .lastBlog .itemBlogLast:nth-child(2) .imagePortada,
+  .lastBlog .itemBlogLast:nth-child(3) .imagePortada {
+    height: 11vw;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -601,6 +681,10 @@ p {
 
 .spaceLetter {
   letter-spacing: 7px;
+}
+
+.whiteBackground {
+  background-color: #ffffff;
 }
 
 .button {
