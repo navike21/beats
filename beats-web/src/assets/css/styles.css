@@ -190,8 +190,8 @@
   .outVideo {
     -webkit-animation-name: fadeOutVideo;
             animation-name: fadeOutVideo;
-    -webkit-animation-duration: .3s;
-            animation-duration: .3s;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     -webkit-animation-timing-function: ease-out;
@@ -622,6 +622,128 @@
   }
 }
 
+.iconVideo {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #dd1c55;
+  color: #ffffff;
+  z-index: 99;
+}
+
+.iconVideo::before {
+  content: '';
+  position: absolute;
+  background-color: rgba(221, 28, 85, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 50%;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  -webkit-animation-name: circleVideo2;
+          animation-name: circleVideo2;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+}
+
+.iconVideo::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(221, 28, 85, 0.4);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 50%;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-animation-name: circleVideo;
+          animation-name: circleVideo;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes circleVideo {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes circleVideo {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes circleVideo2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+@keyframes circleVideo2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+.fixedVideo {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  z-index: 99;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -795,4 +917,3 @@ p {
     font-size: 80%;
   }
 }
-/*# sourceMappingURL=styles.css.map */

@@ -23,6 +23,7 @@ export default class Menu extends Component {
         <a href="/#escuchalo" className="w_100 align_center" onClick={this.state.functionGet}>Escúchalo</a>
         <Link to="/beatsmovil" className="w_100 align_center">Beats Móvil</Link>
         <a href="/#precios" className="w_100 align_center" onClick={this.state.functionGet}>Precios</a>
+        <a href="/#blog" className="w_100 align_center" onClick={this.state.functionGet}>Blog</a>
         <Link to="/corporativo" className="w_100 align_center">Beats para Empresas</Link>
         <Link to="/pedido" className="w_100 align_center">Pide tu canción</Link>
       </div>

@@ -26,12 +26,10 @@ export default class Cantada extends Component {
       loading: true,
 
       optionKit: {},
-      titleOpt1: 'Con todos los beats',
-      descript1:
-        '¡Creemos tu canción junto a toda la banda de BEATS! Tu canción tendrá todos los instrumentos necesarios para tener la combinación perfecta.',
-      titleOpt2: 'Beats Acústicos',
-      descript2:
-        '¿La quieres aún más feeling? Tu canción suena también en formato acústico. Hagámosla a piano o guitarra y voz. Déjate sorprender por el auténtico sentimiento.'
+      titleOpt1: 'Con todos los beats - En estudio',
+      descript1: '¡Creemos tu canción junto a toda la banda de BEATS! Tu canción tendrá todos los instrumentos necesarios para tener la combinación perfecta.',
+      titleOpt2: 'Beats Acústicos - En estudio',
+      descript2: '¿La quieres aún más feeling? Tu canción suena también en formato acústico. Hagámosla a piano o guitarra y voz. Déjate sorprender por el auténtico sentimiento.'
     };
   }
 

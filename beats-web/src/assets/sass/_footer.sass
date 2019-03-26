@@ -1,0 +1,68 @@
+.iconVideo
+  position: fixed
+  right: 20px
+  bottom: 20px
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  border: none
+  cursor: pointer
+  background-color: $pinkColor
+  color: $whiteColor
+  z-index: 99
+  &::before
+    content: ''
+    position: absolute
+    background-color: rgba($pinkColor, .2)
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -1
+    border-radius: 50%
+    transform: scale(1.4)
+
+    animation-name: circleVideo2
+    animation-direction: alternate
+    animation-duration: 1s
+    animation-iteration-count: infinite
+    animation-timing-function: ease-in-out
+    animation-delay: .2s
+  &::after
+    content: ''
+    position: absolute
+    background-color: rgba($pinkColor, .4)
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -1
+    border-radius: 50%
+    transform: scale(1.2)
+
+    animation-name: circleVideo
+    animation-direction: alternate
+    animation-duration: 1s
+    animation-iteration-count: infinite
+    animation-timing-function: ease-in-out
+
+@keyframes circleVideo
+  0%
+    transform: scale(1)
+    opacity: 0
+  100%
+    transform: scale(1.2)
+    opacity: 1
+
+@keyframes circleVideo2
+  0%
+    transform: scale(1)
+    opacity: 0
+  100%
+    transform: scale(1.4)
+    opacity: 1
+
+.fixedVideo
+  background-color: rgba($blackColor, .9)
+  position: fixed
+  z-index: 99

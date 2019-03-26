@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import Logo from '../../images/logo.svg';
+import VideoBeats from '../home/videoBeats';
 
 export default class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showPortada: false
+    };
+  }
+  showPortada = () => {
+    this.setState({
+      showPortada: !this.state.showPortada
+    });
+  };
   render() {
     return (
       <footer className="section_middle_center w_100 font_tiny whiteColor font_light darkBlueColor spaceInBottom_medium">
@@ -49,6 +61,9 @@ export default class Footer extends Component {
           Todas las canciones son propiedad intelectual de beats. Los derechos de uso de la canción
           se comparten entre la empresa beats y el cliente.
         </p>
+        <div className="wrappVideoBeats section_middle_center">
+          <VideoBeats showImg={this.showPortada} />
+        </div>
       </footer>
     );
   }

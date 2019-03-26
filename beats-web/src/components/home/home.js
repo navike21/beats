@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../share/header';
-// import VideoBeats from '../home/videoBeats';
 import PlayList from '../home/playList';
 import Footer from '../share/footer';
 import LastedPost from '../blog/lasted';
@@ -22,7 +21,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showPortada: false,
+      showPortada: true,
       titleWeb: 'Beats música',
       slogan: 'Canciones personalizadas',
       descriptionWeb: 'Somos una Startup dedicada a la creación de canciones personalizadas.',
@@ -79,7 +78,7 @@ export default class Home extends Component {
           <meta name="twitter:image" content={this.state.beatsPortada} />
         </MetaTags>
         <Header />
-        {/* <VideoBeats showImg={this.showPortada} /> */}
+        
         <section
           className={
             'portadaHome section_bottom_center w_100 full_min_h ' +
@@ -120,7 +119,7 @@ export default class Home extends Component {
                 <img src={pico} alt="Pico" className="img_normal img_small_mobile" /> Beats Móvil
               </h2>
               <p className="whiteColor align_center w_100">
-                Creamos tu canción en versión acústica y te la enviamos al móvil en un plazo máximo
+                Creamos y grabamos tu canción en versión acústica desde un dispositivo móvil y te la enviamos al whatsapp en un plazo máximo
                 de 24 horas.
               </p>
               <Link to="/beatsmovil" className="button font_normal">
@@ -136,7 +135,7 @@ export default class Home extends Component {
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
                 Beats Acústicos
               </h3>
-              <span className="font_small">(versión acústica)</span>
+              <span className="font_small">(versión acústica en estudio)</span>
               <div className="w_100 align_center marginTop_tiny font_big">
                 S/. {contentTypes.kitSoAcoustic}
               </div>
@@ -148,7 +147,7 @@ export default class Home extends Component {
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
                 Todo Beats
               </h3>
-              <span className="font_small">(banda completa)</span>
+              <span className="font_small">(banda completa en estudio)</span>
               <div className="w_100 align_center marginTop_tiny font_big">
                 S/. {contentTypes.kitSoTodBeats}
               </div>
@@ -160,7 +159,7 @@ export default class Home extends Component {
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
                 Beats Acústicos
               </h3>
-              <span className="font_small">(versión acústica)</span>
+              <span className="font_small">(versión acústica en estudio)</span>
               <div className="w_100 align_center marginTop_tiny font_big">
                 S/. {contentTypes.kitDuAcoustic}
               </div>
@@ -172,7 +171,7 @@ export default class Home extends Component {
               <h3 className="w_100 align_center marginBottom_tiny font_medium font_light">
                 Todo Beats
               </h3>
-              <span className="font_small">(banda completa)</span>
+              <span className="font_small">(banda completa en estudio)</span>
               <div className="w_100 align_center marginTop_tiny font_big">
                 S/. {contentTypes.kitDuTodBeats}
               </div>
@@ -206,7 +205,7 @@ export default class Home extends Component {
             </Link>
           </div>
         </div>
-        <div className="section_middle_center w_100 purpleBackground full_min_h">
+        <div id="blog" className="section_middle_center w_100 purpleBackground full_min_h">
           <h2 className="whiteColor font_big w_100 font_light marginBottom_small marginHorizontal_small align_center marginTop_big">
             Life is Beats, My Blog is yours!
           </h2>

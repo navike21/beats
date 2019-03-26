@@ -16,5 +16,5 @@ export const emailsBeats = {
 };
 
 export const url = {
-  link: 'https://vpsvirtual.navike21.com'
+  link: 'https://beats.navike21.com'
 }
