@@ -117,7 +117,7 @@ export default class VideoBeats extends Component {
           </div>
         </div>
         <button className="iconVideo section_middle_center" onClick={this.stop}>
-          <i className="fas fa-video"></i>
+          <i className="fas fa-play"></i>
         </button>
       </div>
     );
