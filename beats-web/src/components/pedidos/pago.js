@@ -5,6 +5,7 @@ import Footer from '../share/footer';
 import pico from '../../images/pico.svg';
 
 import { contentTypes, url } from '../share/settings';
+// import { Link } from 'react-router-dom';
 
 // import md5 from "react-native-md5";
 import md5 from 'md5';
@@ -15,6 +16,7 @@ export default class Pago extends Component {
     super(props);
     this.state = {
       description: '',
+      descriptionComplete: '',
       reference: '',
       monto: '',
       signature: '',
@@ -27,11 +29,14 @@ export default class Pago extends Component {
       descriptionWeb: 'Personaliza tu canción y realiza tu pedido',
       beatsIcon: 'https://beats-logo.png',
       beatsPortada: 'https://beatsmusica.com/static/media/portada.a4759fd8.png',
-      urlWeb: 'https://beatsmusica.com/pedido'
+      urlWeb: 'https://beatsmusica.com/pedido',
+
+      tipo: false,
+      detailPedido: localStorage.getItem('detailPedido'),
+      empresa: false
     };
   }
 
-  
   _searchUser = (id) => {
     let kit = localStorage.getItem('selectKit').split(',');
     if(kit[0] !== "Beats Móvil"){
@@ -51,8 +56,7 @@ export default class Pago extends Component {
           nombres: jsonget.results[0].name,
           email: jsonget.results[0].email,
           phone: jsonget.results[0].telefono
-        })
-        
+        })        
       });
     }
     else {
@@ -66,34 +70,42 @@ export default class Pago extends Component {
   }
   _getInfoDescripcion = () =>{
     let kit = localStorage.getItem('selectKit').split(',');
+    let cliente = localStorage.getItem('detailPedido');
     let cantante = localStorage.getItem('selectCantante');
     let referencia = '';
     let precio = kit[1];
     let Api = contentTypes.apiKey;
     let merchantId = contentTypes.merchantId;
     let moneda = contentTypes.moneda;
+    let detallePedidoCompleto = '';
 
     if (kit[0] === 'Beats Móvil'){
-      referencia = 'Pedido';
+      referencia = 'pedido nro: ' + this._nroPedido();
+      
+      let detallePedido = JSON.parse(cliente);
+      detallePedidoCompleto = detallePedidoCompleto + 'nombres: ' + detallePedido.nombres + ', ';
+      detallePedidoCompleto = detallePedidoCompleto + 'email: ' + detallePedido.email + ', ';
+      detallePedidoCompleto = detallePedidoCompleto + 'historia: ' + detallePedido.historia + '.';
     }
     else {
+      detallePedidoCompleto = localStorage.getItem('categoriaBeats');
       if (cantante === 'Dúo'){
-        referencia = 'Kit Duo';
+        referencia = 'pedido nro: ' + this._nroPedido() + ' - Kit Duo';
       } else {
-        referencia = 'Kit Solista';
+        referencia = 'pedido nro: ' + this._nroPedido() + ' - Kit Solista';
       }
     }
     // console.log(Api+'~'+merchantId+'~'+referencia+'~'+precio+'~'+moneda);
     let hex_md5v = md5(Api+'~'+merchantId+'~'+referencia+'~'+precio+'~'+moneda);
-    // console.log(hex_md5v);
     
+
     this.setState({
       description: kit[0],
+      descriptionComplete: kit[0] +', '+ detallePedidoCompleto,
       reference: referencia,
       monto: kit[1],
       signature: String(hex_md5v)
     });
-
   }
 
   _nroPedido = ()=> {
@@ -112,12 +124,86 @@ export default class Pago extends Component {
     this.setState({
       nroPedido: pedido_nro
     })
+
+    return pedido_nro
 }
 
   componentDidMount = () =>{
-    this._getInfoDescripcion();
     this._searchUser(localStorage.getItem('solicitante'));
-    this._nroPedido();
+    this._getInfoDescripcion();
+  
+    this._sendPedido();
+  }
+
+  _sendMovilPedido = ( pago ) =>{
+    // console.log(this.state.detailPedido);
+    let detail = JSON.parse(this.state.detailPedido);
+    fetch(`${url.link}/beats-movil/`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        // Authorization: `JWT ${token}`
+      },
+      body: JSON.stringify({
+        "nombres": 'Nro pedido:' +this._nroPedido()+ ' - ' + detail.nombres,
+        "email": detail.email,
+        "telefono": detail.telefono,
+        "historia": detail.historia,
+        "total_pago": pago,
+        "pago": false,
+        "entregado": false
+      })
+    })
+    .then(result => result.json())
+  }
+
+  _sendNormalPedido = ( kit, pago ) =>{
+    // console.log(this.state.detailPedido);
+    fetch(`${url.link}/pedido-beats/`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        // Authorization: `JWT ${token}`
+      },
+      body: JSON.stringify({
+        "cliente": localStorage.getItem('solicitante'),
+        "nro_pedido": localStorage.getItem('pedido_nro'),
+        "detalle": this.state.detailPedido,
+        "historia": localStorage.getItem('historia'),
+        "categoria": localStorage.getItem('categoriaBeats'),
+        "sub_categoria": localStorage.getItem('subCategoriaBeats'),
+        "genero": localStorage.getItem('generoMusica'),
+        "cantate": localStorage.getItem('selectCantante'),
+        "kit": kit,
+        "total_pago": pago,
+        "pago": false,
+        "entregado": false
+      })
+    })
+    .then(result => result.json())
+  }
+
+  _sendPedido = () =>{
+    let tipoPedido = localStorage.getItem('selectKit');
+    // console.log(tipoPedido)
+    if( tipoPedido !== null){
+      let getDataPedido = tipoPedido.split(',');
+    // console.log(tipoPedido);
+      if(getDataPedido[0] === 'Beats Móvil'){
+        this._sendMovilPedido( getDataPedido[1] )
+      } else if(getDataPedido[0] === 'Beats empresas'){
+        // console.log("beats empresas");
+        this.setState({empresa: true});
+      } else {
+        // console.log("beats normal");
+        this._sendNormalPedido( getDataPedido[0], getDataPedido[1] )
+      }
+      this.setState({
+        tipo: true
+      })
+    }
   }
 
   render() {
@@ -176,7 +262,7 @@ export default class Pago extends Component {
               <form method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
                 <input name="merchantId"      type="hidden"   value={contentTypes.merchantId} />
                 <input name="referenceCode"   type="hidden"   value={this.state.reference} />
-                <input name="description"     type="hidden"   value={this.state.description} />
+                <input name="description"     type="hidden"   value={this.state.descriptionComplete} />
                 <input name="amount"          type="hidden"   value={this.state.monto} />
                 <input name="tax"             type="hidden"   value="1" />
                 <input name="taxReturnBase"   type="hidden"   value="0" />

@@ -4,7 +4,7 @@ import Footer from '../share/footer';
 
 import { Link } from 'react-router-dom';
 
-import { url } from '../share/settings';
+// import { url } from '../share/settings';
 
 import pico from '../../images/pico.svg';
 
@@ -18,61 +18,60 @@ export default class ConfirmaPago extends Component {
     };
   }
 
-  componentDidMount = () =>{
-    // alert("s")
-    this._sendPedido()
-  }
+  // componentDidMount = () =>{
+  //   // alert("s")
+  //   this._sendPedido()
+  // }
 
-  _sendMovilPedido = ( pago ) =>{
-    console.log(this.state.detailPedido);
-    let detail = JSON.parse(this.state.detailPedido)
-    fetch(`${url.link}/beats-movil/`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        // Authorization: `JWT ${token}`
-      },
-      body: JSON.stringify({
-        "nombres": detail.nombres,
-        "email": detail.email,
-        "telefono": detail.telefono,
-        "historia": detail.historia,
-        "total_pago": pago,
-        "pago": true,
-        "entregado": false
-      })
-    })
-    .then(result => result.json())
-    // .then(results => console.log(results))
-  }
+  // _sendMovilPedido = ( pago ) =>{
+  //   // console.log(this.state.detailPedido);
+  //   let detail = JSON.parse(this.state.detailPedido)
+  //   fetch(`${url.link}/beats-movil/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //       // Authorization: `JWT ${token}`
+  //     },
+  //     body: JSON.stringify({
+  //       "nombres": detail.nombres,
+  //       "email": detail.email,
+  //       "telefono": detail.telefono,
+  //       "historia": detail.historia,
+  //       "total_pago": pago,
+  //       "pago": true,
+  //       "entregado": false
+  //     })
+  //   })
+  //   .then(result => result.json())
+  // }
 
-  _sendNormalPedido = ( kit, pago ) =>{
-    console.log(this.state.detailPedido);
-    fetch(`${url.link}/pedido-beats/`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        // Authorization: `JWT ${token}`
-      },
-      body: JSON.stringify({
-        "cliente": localStorage.getItem('solicitante'),
-        "nro_pedido": localStorage.getItem('pedido_nro'),
-        "detalle": this.state.detailPedido,
-        "historia": localStorage.getItem('historia'),
-        "categoria": localStorage.getItem('categoriaBeats'),
-        "sub_categoria": localStorage.getItem('subCategoriaBeats'),
-        "genero": localStorage.getItem('generoMusica'),
-        "cantate": localStorage.getItem('selectCantante'),
-        "kit": kit,
-        "total_pago": pago,
-        "pago": true,
-        "entregado": false
-      })
-    })
-    .then(result => result.json())
-  }
+  // _sendNormalPedido = ( kit, pago ) =>{
+  //   console.log(this.state.detailPedido);
+  //   fetch(`${url.link}/pedido-beats/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //       // Authorization: `JWT ${token}`
+  //     },
+  //     body: JSON.stringify({
+  //       "cliente": localStorage.getItem('solicitante'),
+  //       "nro_pedido": localStorage.getItem('pedido_nro'),
+  //       "detalle": this.state.detailPedido,
+  //       "historia": localStorage.getItem('historia'),
+  //       "categoria": localStorage.getItem('categoriaBeats'),
+  //       "sub_categoria": localStorage.getItem('subCategoriaBeats'),
+  //       "genero": localStorage.getItem('generoMusica'),
+  //       "cantate": localStorage.getItem('selectCantante'),
+  //       "kit": kit,
+  //       "total_pago": pago,
+  //       "pago": true,
+  //       "entregado": false
+  //     })
+  //   })
+  //   .then(result => result.json())
+  // }
 
   _sendPedido = () =>{
     let tipoPedido = localStorage.getItem('selectKit');
@@ -81,11 +80,14 @@ export default class ConfirmaPago extends Component {
       let getDataPedido = tipoPedido.split(',');
     // console.log(tipoPedido);
       if(getDataPedido[0] === 'Beats Móvil'){
-        this._sendMovilPedido( getDataPedido[1] )
+        console.log("beats movil");
+        // this._sendMovilPedido( getDataPedido[1] )
+        
       } else if(getDataPedido[0] === 'Beats empresas'){
-        this.setState({empresa: true})
+        this.setState({empresa: true});
       } else {
-        this._sendNormalPedido( getDataPedido[0], getDataPedido[1] )
+        console.log("pedido normal");
+        // this._sendNormalPedido( getDataPedido[0], getDataPedido[1] )
       }
       this.setState({
         tipo: true
