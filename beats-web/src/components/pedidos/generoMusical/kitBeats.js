@@ -111,7 +111,7 @@ export default class Cantada extends Component {
           loading: false
         },
         function() {
-          console.log(this.state.optionKit);
+          // console.log(this.state.optionKit);
         }
       );
     } else if (option === 'Dúo') {
@@ -121,7 +121,7 @@ export default class Cantada extends Component {
           loading: false
         },
         function() {
-          console.log(this.state.optionKit);
+          // console.log(this.state.optionKit);
         }
       );
     }

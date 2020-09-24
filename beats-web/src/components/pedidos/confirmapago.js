@@ -80,13 +80,13 @@ export default class ConfirmaPago extends Component {
       let getDataPedido = tipoPedido.split(',');
     // console.log(tipoPedido);
       if(getDataPedido[0] === 'Beats Móvil'){
-        console.log("beats movil");
+        // console.log("beats movil");
         // this._sendMovilPedido( getDataPedido[1] )
         
       } else if(getDataPedido[0] === 'Beats empresas'){
         this.setState({empresa: true});
       } else {
-        console.log("pedido normal");
+        // console.log("pedido normal");
         // this._sendNormalPedido( getDataPedido[0], getDataPedido[1] )
       }
       this.setState({

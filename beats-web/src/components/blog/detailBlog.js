@@ -44,7 +44,8 @@ export default class DetailBlog extends PureComponent {
         titleWeb: result.title,
         show: true
       }, ()=>{
-        console.log(this.state.infoBlog)
+
+        // console.log(this.state.infoBlog)
         let word = this.state.infoBlog.text.replace(/<[^>]*>?/g, '');
         let splitWord = word.split(' ');
         let wordFinal = '';
@@ -59,16 +60,21 @@ export default class DetailBlog extends PureComponent {
         this._getHtml();
       })
     })
+    .then(() => {
+      setTimeout(() => {
+        window.scrollTo( 0, 0 )
+      }, 1000);
+    })
   }
 
-  _getHtml = () =>{
+  _getHtml = () => {
     let div = document.getElementById('textContent');
     let inner = div.getElementsByTagName('p');
     for (let i = 0; i < inner.length; i++) {
       let image = inner[i].getElementsByTagName('img');
       if(image.length !== 0){
         let source = String(image[0].src);
-        let urlActual : ''
+        let urlActual : '';
         if(window.location.port !== null){
           urlActual = window.location.protocol +'//'+ window.location.hostname +':'+ window.location.port;
         }
